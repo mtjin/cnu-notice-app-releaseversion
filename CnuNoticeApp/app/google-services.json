@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "249759779631",
+    "firebase_url": "https://cnunoticeapp.firebaseio.com",
+    "project_id": "cnunoticeapp",
+    "storage_bucket": "cnunoticeapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:249759779631:android:f6f424f38628311c556fda",
+        "android_client_info": {
+          "package_name": "com.mtjin.cnunoticeapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "249759779631-ef68n12ms243rvvujetsl26r78vl0sqg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mtjin.cnunoticeapp",
+            "certificate_hash": "2594505716124fb73c0d9ca0633d9dd80b38d943"
+          }
+        },
+        {
+          "client_id": "249759779631-jddvrk1drmcaph36d3aagm8la1rfil13.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyi9LltJxhTsS65WNa6Zj0rhnEUGt2YmY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "249759779631-jddvrk1drmcaph36d3aagm8la1rfil13.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

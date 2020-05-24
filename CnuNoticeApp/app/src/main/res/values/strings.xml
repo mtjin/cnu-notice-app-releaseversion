@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">CNU컴공공지</string>
+    <string name="bottom_navi_test2">일반</string>
+    <string name="bottom_navi_text1">학사</string>
+    <string name="bottom_navi_text3">사업단</string>
+    <string name="bottom_navi_text4">취업</string>
+    <string name="network_err_toast">네트워크가 연결되어 있지 않습니다</string>
+    <string name="employ_url">https://computer.cnu.ac.kr/computer/notice/job.do</string>
+    <string name="business_url">https://computer.cnu.ac.kr/computer/notice/project.do</string>
+    <string name="general_url">https://computer.cnu.ac.kr/computer/notice/notice.do</string>
+    <string name="bachelor_url">https://computer.cnu.ac.kr/computer/notice/bachelor.do</string>
+    <string name="bottom_navi_text5">즐겨찾기</string>
+    <string name="dialog_favorite_add_text">즐겨찾기에 추가하시겠습니까?</string>
+    <string name="no_text">NO</string>
+    <string name="yes_text">YES</string>
+    <string name="explain_text">번호를 누르면 즐겨찾기 추가/해제, 내용을 누르면 해당 링크로 이동합니다.
+    추가 기능 추후 추천 바람</string>
+    <string name="dialog_favorite_delete_text">즐겨찾기를 삭제하시겠습니까?</string>
+    <string name="add_success_text">추가되었습니다</string>
+    <string name="delete_success_text">삭제되었습니다</string>
+</resources>

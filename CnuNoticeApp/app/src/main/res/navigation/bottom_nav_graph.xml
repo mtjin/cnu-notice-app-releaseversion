@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/bottom_nav_1">
+
+    <fragment
+        android:id="@+id/bottom_nav_1"
+        android:name="com.mtjin.cnunoticeapp.views.bachelor.BachelorNoticeFragment"
+        android:label="BachelorNoticeFragment"
+        tools:layout="@layout/fragment_bachelor" />
+    <fragment
+        android:id="@+id/bottom_nav_2"
+        android:name="com.mtjin.cnunoticeapp.views.general.GeneralNoticeFragment"
+        android:label="GeneralNoticeFragment"
+        tools:layout="@layout/fragment_general" />
+    <fragment
+        android:id="@+id/bottom_nav_3"
+        android:name="com.mtjin.cnunoticeapp.views.business.BusinessNoticeFragment"
+        android:label="BusinessNoticeFragment"
+        tools:layout="@layout/fragment_business" />
+    <fragment
+        android:id="@+id/bottom_nav_4"
+        android:name="com.mtjin.cnunoticeapp.views.employ.EmployNoticeFragment"
+        android:label="EmployNoticeFragment"
+        tools:layout="@layout/fragment_employ" />
+    <fragment
+        android:id="@+id/bottom_nav_5"
+        android:name="com.mtjin.cnunoticeapp.views.favorite.FavoriteFragment"
+        android:label="FavoriteNoticeFragment"
+        tools:layout="@layout/fragment_favorite" />
+</navigation>
