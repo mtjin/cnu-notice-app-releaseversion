@@ -1,5 +1,5 @@
 # cnu-notice-app-releaseversion
-충남대 공지앱 출시버전
+충남대 공지앱 출시버전 (이전 기록 : https://github.com/mtjin/cnu-notice-app)
 대학교 공지보기 토이프로젝트 1차 완료 -공지보기 
 (인터넷 연결상태에 따른 데이터 처리 및 즐겨찾기 기능 추가, 정보는 크롤링으로 긁어옴)
 <p>
