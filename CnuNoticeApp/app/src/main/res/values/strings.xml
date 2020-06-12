@@ -18,4 +18,6 @@
     <string name="dialog_favorite_delete_text">즐겨찾기를 삭제하시겠습니까?</string>
     <string name="add_success_text">추가되었습니다</string>
     <string name="delete_success_text">삭제되었습니다</string>
+    <string name="user_id_text">example@gmail.com</string>
+    <string name="user_pw_text">password</string>
 </resources>
