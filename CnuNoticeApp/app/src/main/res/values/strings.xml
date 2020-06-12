@@ -20,4 +20,9 @@
     <string name="delete_success_text">삭제되었습니다</string>
     <string name="user_id_text">example@gmail.com</string>
     <string name="user_pw_text">password</string>
+    <string name="login_fail_text">로그인 실패</string>
+    <string name="login_success_text">로그인</string>
+    <string name="login_title_text">충남대학교 컴퓨터공학과</string>
+    <string name="sign_up_text">Sign Up</string>
+    <string name="login_text">Login</string>
 </resources>

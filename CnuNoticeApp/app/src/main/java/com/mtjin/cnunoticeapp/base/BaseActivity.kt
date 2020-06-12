@@ -1,7 +1,6 @@
 package com.mtjin.cnunoticeapp.base
 
 import android.os.Bundle
-import android.view.WindowManager
 import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
@@ -16,10 +15,6 @@ abstract class BaseActivity<B : ViewDataBinding>(
     private val compositeDisposable = CompositeDisposable()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
-        )
         binding = DataBindingUtil.setContentView(this, layoutId)
         binding.lifecycleOwner = this
     }
