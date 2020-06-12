@@ -10,9 +10,9 @@ import androidx.room.PrimaryKey
 * */
 @Entity(tableName = "favorite")
 data class FavoriteNotice(
-    @PrimaryKey
     val num: String,
     val title: String,
+    @PrimaryKey
     val link: String
 ) : Parcelable {
     constructor(parcel: Parcel) : this(

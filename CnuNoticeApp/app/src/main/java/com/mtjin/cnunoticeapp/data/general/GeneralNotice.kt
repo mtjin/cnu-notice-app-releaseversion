@@ -8,8 +8,8 @@ import androidx.room.PrimaryKey
 * */
 @Entity(tableName = "general")
 data class GeneralNotice(
-    @PrimaryKey
     val num: String,
     val title: String,
+    @PrimaryKey
     var link: String
 )
