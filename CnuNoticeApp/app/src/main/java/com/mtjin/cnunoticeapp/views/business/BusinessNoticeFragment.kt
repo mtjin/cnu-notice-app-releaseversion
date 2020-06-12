@@ -1,16 +1,17 @@
 package com.mtjin.cnunoticeapp.views.business
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import com.mtjin.cnunoticeapp.R
 import com.mtjin.cnunoticeapp.base.BaseFragment
+import com.mtjin.cnunoticeapp.constants.EXTRA_NOTICE_LINK
 import com.mtjin.cnunoticeapp.constants.EXTRA_NOTICE_SAVE
 import com.mtjin.cnunoticeapp.constants.TAG_DIALOG_EVENT
 import com.mtjin.cnunoticeapp.data.favorite.FavoriteNotice
 import com.mtjin.cnunoticeapp.databinding.FragmentBusinessBinding
 import com.mtjin.cnunoticeapp.utils.NetworkManager
 import com.mtjin.cnunoticeapp.views.dialog.DialogAddFragment
+import com.mtjin.cnunoticeapp.views.notice_webview.NoticeWebViewActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class BusinessNoticeFragment :
@@ -20,10 +21,9 @@ class BusinessNoticeFragment :
 
     private fun initAdapter() {
         noticeAdapter = BusinessAdapter(itemClick = { item ->
-            Intent(
-                Intent.ACTION_VIEW,
-                Uri.parse(item.link)
-            ).run(this::startActivity)
+            val intent = Intent(context, NoticeWebViewActivity::class.java)
+            intent.putExtra(EXTRA_NOTICE_LINK, item.link)
+            startActivity(intent)
         },
             numClick = {
                 val bundle = Bundle()
