@@ -3,7 +3,10 @@
 대학교 공지보기 토이프로젝트 1차 완료 -공지보기 
 (인터넷 연결상태에 따른 데이터 처리 및 즐겨찾기 기능 추가, 정보는 크롤링으로 긁어옴)
 <p>
-MVVM, 파이어베이스 크래시틱스, JSOUP, 무한스크롤, RxJava, jetpack bottom navigation, 캐싱, Koin, Retrofit2, ROOM 등 사용
+[2차] 로그인화면 구현 및 공지 UI 조금 변경 - 구글로그인 쪽 MVVM 으로 할려했으나 설계가 애매하고 어려운부분이 많아 일단 보류함
+<br>
+<p>
+MVVM, Firebase, JSOUP, 무한스크롤, RxJava, jetpack bottom navigation, 캐싱, Koin, Retrofit2, ROOM 등 사용
   <br>
   <br>
   <img src="https://user-images.githubusercontent.com/37071007/82731534-9a477c80-9d42-11ea-9d22-94d4438e1b7d.png" align="left" height="400" width="200" >
