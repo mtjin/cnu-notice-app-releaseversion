@@ -33,7 +33,7 @@ class NoticeWebViewActivity : AppCompatActivity() {
         mWebSettings.builtInZoomControls = false // 화면 확대 축소 허용 여부
         mWebSettings.cacheMode = WebSettings.LOAD_NO_CACHE // 브라우저 캐시 허용 여부
         mWebSettings.domStorageEnabled = true // 로컬저장소 허용 여부
-        wv_webview.loadUrl(url) // 웹뷰에 표시할 웹사이트 주소, 웹뷰 시작
+        wv_webview.loadUrl(url.toString()) // 웹뷰에 표시할 웹사이트 주소, 웹뷰 시작
     }
 
     private fun processIntent() {
