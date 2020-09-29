@@ -43,6 +43,7 @@
             android:padding="8dp"
             android:text="@{item.title}"
             android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/general_tv_num"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -52,6 +53,6 @@
             android:background="@color/colorBlack"
             android:padding="4dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/bachelor_tv_num" />
+            app:layout_constraintTop_toBottomOf="@id/general_tv_content" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
