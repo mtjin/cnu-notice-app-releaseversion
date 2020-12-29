@@ -1,4 +1,4 @@
-package com.mtjin.cnunoticeapp.utils
+package com.mtjin.cnunoticeapp.views
 
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -8,6 +8,7 @@ import com.mtjin.cnunoticeapp.data.business.BusinessNotice
 import com.mtjin.cnunoticeapp.data.employ.EmployNotice
 import com.mtjin.cnunoticeapp.data.favorite.FavoriteNotice
 import com.mtjin.cnunoticeapp.data.general.GeneralNotice
+import com.mtjin.cnunoticeapp.utils.EndlessRecyclerViewScrollListener
 import com.mtjin.cnunoticeapp.views.bachelor.BachelorAdapter
 import com.mtjin.cnunoticeapp.views.bachelor.BachelorNoticeViewModel
 import com.mtjin.cnunoticeapp.views.business.BusinessAdapter
