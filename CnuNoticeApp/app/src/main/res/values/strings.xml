@@ -25,4 +25,6 @@
     <string name="login_title_text">충남대학교 컴퓨터공학과</string>
     <string name="sign_up_text">Sign Up</string>
     <string name="login_text">Login</string>
+    <string name="notice_text">공지사항</string>
+    <string name="free_board_text">자유게시판</string>
 </resources>

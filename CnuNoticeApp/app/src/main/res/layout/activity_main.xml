@@ -25,6 +25,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:id="@+id/tv_notice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_12dp"
+            android:text="@string/notice_text"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@id/iv_notice"
+            app:layout_constraintStart_toStartOf="@id/iv_notice"
+            app:layout_constraintTop_toBottomOf="@id/iv_notice" />
+
         <com.skydoves.elasticviews.ElasticImageView
             android:id="@+id/iv_board"
             android:layout_width="wrap_content"
@@ -38,5 +50,16 @@
             app:layout_constraintStart_toEndOf="@id/iv_notice"
             app:layout_constraintTop_toTopOf="@id/iv_notice" />
 
+        <TextView
+            android:id="@+id/tv_board"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_12dp"
+            android:text="@string/free_board_text"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@id/iv_board"
+            app:layout_constraintStart_toStartOf="@id/iv_board"
+            app:layout_constraintTop_toBottomOf="@id/iv_board" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
