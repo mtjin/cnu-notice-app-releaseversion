@@ -13,7 +13,7 @@ class KoinApplication : Application() {
         super.onCreate()
         startKoin {
             if (BuildConfig.DEBUG) {
-                androidLogger()
+                androidLogger(Level.NONE)
             } else {
                 androidLogger(Level.NONE)
             }

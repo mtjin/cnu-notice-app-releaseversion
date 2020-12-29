@@ -13,7 +13,7 @@ import com.mtjin.cnunoticeapp.R
 import com.mtjin.cnunoticeapp.base.BaseActivity
 import com.mtjin.cnunoticeapp.databinding.ActivityLoginBinding
 import com.mtjin.cnunoticeapp.utils.FirebaseHelper
-import com.mtjin.cnunoticeapp.views.main.MainActivity
+import com.mtjin.cnunoticeapp.views.notice.NoticeActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -70,7 +70,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
                 if (task.isSuccessful) {
                     showToast(getString(R.string.login_success_text))
                     FirebaseHelper.user = FirebaseHelper.auth.currentUser
-                    startActivity(Intent(this, MainActivity::class.java))
+                    startActivity(Intent(this, NoticeActivity::class.java))
                 } else {
                     showToast(getString(R.string.login_fail_text))
                 }
