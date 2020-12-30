@@ -27,4 +27,7 @@
     <string name="login_text">Login</string>
     <string name="notice_text">공지사항</string>
     <string name="free_board_text">자유게시판</string>
+    <string name="please_univ_auth_text">충남대학교 포털에 로그인 후 빨간색 모자이크에 써져있는 단어를 입력해주세요. 이 과정은 충남대학교 학생인증을 위한 단계이며 한 번만 인증하시면 됩니다. :)</string>
+    <string name="please_enter_text">입력해주세요</string>
+    <string name="auth_confirm_text">인증확인</string>
 </resources>

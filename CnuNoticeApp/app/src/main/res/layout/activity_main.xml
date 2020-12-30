@@ -34,19 +34,18 @@
             android:layout_marginTop="@dimen/margin_12dp"
             android:text="@string/notice_text"
             android:textColor="@color/colorBlack"
-            android:textSize="14sp"
+            android:textSize="@dimen/text_size_14sp"
             app:layout_constraintEnd_toEndOf="@id/iv_notice"
             app:layout_constraintStart_toStartOf="@id/iv_notice"
             app:layout_constraintTop_toBottomOf="@id/iv_notice" />
 
-        <com.skydoves.elasticviews.ElasticImageView
+        <ImageView
             android:id="@+id/iv_board"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="@{()->vm.goBoard()}"
             android:scaleType="fitXY"
             android:src="@drawable/ic_board"
-            app:imageView_duration="200"
-            app:imageView_scale="0.9"
             app:layout_constraintBottom_toBottomOf="@id/iv_notice"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/iv_notice"
@@ -59,7 +58,7 @@
             android:layout_marginTop="@dimen/margin_12dp"
             android:text="@string/free_board_text"
             android:textColor="@color/colorBlack"
-            android:textSize="14sp"
+            android:textSize="@dimen/text_size_14sp"
             app:layout_constraintEnd_toEndOf="@id/iv_board"
             app:layout_constraintStart_toStartOf="@id/iv_board"
             app:layout_constraintTop_toBottomOf="@id/iv_board" />
