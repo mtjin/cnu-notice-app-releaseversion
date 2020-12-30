@@ -2,6 +2,7 @@ package com.mtjin.cnunoticeapp.views.favorite
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.util.Linkify
 import com.mtjin.cnunoticeapp.R
 import com.mtjin.cnunoticeapp.base.BaseFragment
 import com.mtjin.cnunoticeapp.constants.EXTRA_NOTICE_DELETE
@@ -15,6 +16,8 @@ import com.mtjin.cnunoticeapp.views.dialog.DialogAddFragment
 import com.mtjin.cnunoticeapp.views.employ.FavoriteAdapter
 import com.mtjin.cnunoticeapp.views.notice_webview.NoticeWebViewActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.util.regex.Matcher
+import java.util.regex.Pattern
 
 class FavoriteFragment :
     BaseFragment<FragmentFavoriteBinding, FavoriteViewModel>(R.layout.fragment_favorite) {
@@ -51,5 +54,31 @@ class FavoriteFragment :
             showToast(getString(R.string.network_err_toast))
         }
         viewModel.requestNotice()
+        initLinkfy()
+    }
+
+    fun initLinkfy() {
+        val transform =
+            Linkify.TransformFilter(object : Linkify.TransformFilter, (Matcher, String) -> String {
+                override fun transformUrl(p0: Matcher?, p1: String?): String {
+                    return ""
+                }
+
+                override fun invoke(p1: Matcher, p2: String): String {
+                    return ""
+                }
+
+            })
+        //링크달 패턴 정의
+        val pattern1 = Pattern.compile("https://github.com/mtjin/cnu-notice-app-releaseversion")
+        Linkify.addLinks(
+            binding.favoriteTvExplain,
+            pattern1,
+            "https://github.com/mtjin/cnu-notice-app-releaseversion",
+            null,
+            transform
+        )
+
+
     }
 }
