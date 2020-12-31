@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".views.board.BoardActivity"></activity>
+        <activity android:name=".views.board_list.BoardListActivity"></activity>
+        <activity android:name=".views.board.BoardActivity" />
         <activity android:name=".views.main.MainActivity" />
         <activity android:name=".views.notice_webview.NoticeWebViewActivity" />
         <activity android:name=".views.login.LoginActivity" />
