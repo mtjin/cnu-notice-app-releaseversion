@@ -15,9 +15,9 @@ import com.mtjin.cnunoticeapp.views.notice_webview.NoticeWebViewActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class BusinessNoticeFragment :
-    BaseFragment<FragmentBusinessBinding, BusinessNoticeViewModel>(R.layout.fragment_business) {
+    BaseFragment<FragmentBusinessBinding>(R.layout.fragment_business) {
     private lateinit var noticeAdapter: BusinessAdapter
-    override val viewModel: BusinessNoticeViewModel by viewModel()
+    val viewModel: BusinessNoticeViewModel by viewModel()
 
     private fun initAdapter() {
         noticeAdapter = BusinessAdapter(itemClick = { item ->

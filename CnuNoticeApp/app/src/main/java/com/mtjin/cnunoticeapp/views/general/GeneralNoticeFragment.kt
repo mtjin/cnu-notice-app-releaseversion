@@ -15,9 +15,9 @@ import com.mtjin.cnunoticeapp.views.notice_webview.NoticeWebViewActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class GeneralNoticeFragment :
-    BaseFragment<FragmentGeneralBinding, GeneralNoticeViewModel>(R.layout.fragment_general) {
+    BaseFragment<FragmentGeneralBinding>(R.layout.fragment_general) {
     private lateinit var noticeAdapter: GeneralAdapter
-    override val viewModel: GeneralNoticeViewModel by viewModel()
+    val viewModel: GeneralNoticeViewModel by viewModel()
 
     private fun initAdapter() {
         noticeAdapter = GeneralAdapter(itemClick = { item ->

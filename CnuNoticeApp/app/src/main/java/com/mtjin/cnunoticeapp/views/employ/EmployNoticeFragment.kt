@@ -15,9 +15,9 @@ import com.mtjin.cnunoticeapp.views.notice_webview.NoticeWebViewActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class EmployNoticeFragment :
-    BaseFragment<FragmentEmployBinding, EmployNoticeViewModel>(R.layout.fragment_employ) {
+    BaseFragment<FragmentEmployBinding>(R.layout.fragment_employ) {
     private lateinit var noticeAdapter: EmployAdapter
-    override val viewModel: EmployNoticeViewModel by viewModel()
+    val viewModel: EmployNoticeViewModel by viewModel()
 
     private fun initAdapter() {
         noticeAdapter = EmployAdapter(

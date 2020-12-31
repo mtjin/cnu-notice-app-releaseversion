@@ -1,7 +1,6 @@
 package com.mtjin.cnunoticeapp.views.bachelor
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import com.mtjin.cnunoticeapp.R
 import com.mtjin.cnunoticeapp.base.BaseFragment
@@ -16,9 +15,9 @@ import com.mtjin.cnunoticeapp.views.notice_webview.NoticeWebViewActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class BachelorNoticeFragment :
-    BaseFragment<FragmentBachelorBinding, BachelorNoticeViewModel>(R.layout.fragment_bachelor) {
+    BaseFragment<FragmentBachelorBinding>(R.layout.fragment_bachelor) {
     private lateinit var noticeAdapter: BachelorAdapter
-    override val viewModel: BachelorNoticeViewModel by viewModel()
+    val viewModel: BachelorNoticeViewModel by viewModel()
 
     override fun init() {
         binding.vm = viewModel

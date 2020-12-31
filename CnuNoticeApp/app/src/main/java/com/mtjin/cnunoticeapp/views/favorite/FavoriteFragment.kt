@@ -20,9 +20,9 @@ import java.util.regex.Matcher
 import java.util.regex.Pattern
 
 class FavoriteFragment :
-    BaseFragment<FragmentFavoriteBinding, FavoriteViewModel>(R.layout.fragment_favorite) {
+    BaseFragment<FragmentFavoriteBinding>(R.layout.fragment_favorite) {
     private lateinit var noticeAdapter: FavoriteAdapter
-    override val viewModel: FavoriteViewModel by viewModel()
+    val viewModel: FavoriteViewModel by viewModel()
 
     private fun initAdapter() {
         noticeAdapter = FavoriteAdapter(itemClick = { item ->
