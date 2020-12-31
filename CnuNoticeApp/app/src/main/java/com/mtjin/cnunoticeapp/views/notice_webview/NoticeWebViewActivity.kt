@@ -6,7 +6,7 @@ import android.webkit.WebSettings
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 import com.mtjin.cnunoticeapp.R
-import com.mtjin.cnunoticeapp.constants.EXTRA_NOTICE_LINK
+import com.mtjin.cnunoticeapp.utils.constants.EXTRA_NOTICE_LINK
 import kotlinx.android.synthetic.main.activity_notice_web_view.*
 
 

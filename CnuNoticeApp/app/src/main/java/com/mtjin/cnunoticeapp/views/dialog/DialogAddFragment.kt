@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import com.mtjin.cnunoticeapp.R
-import com.mtjin.cnunoticeapp.constants.EXTRA_NOTICE_DELETE
-import com.mtjin.cnunoticeapp.constants.EXTRA_NOTICE_SAVE
+import com.mtjin.cnunoticeapp.utils.constants.EXTRA_NOTICE_DELETE
+import com.mtjin.cnunoticeapp.utils.constants.EXTRA_NOTICE_SAVE
 import com.mtjin.cnunoticeapp.data.favorite.FavoriteNotice
 import com.mtjin.cnunoticeapp.views.favorite.FavoriteViewModel
 import kotlinx.android.synthetic.main.fragment_dialog_add.view.*

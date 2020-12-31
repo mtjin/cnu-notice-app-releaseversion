@@ -4,6 +4,8 @@ import androidx.room.Room
 import com.mtjin.cnunoticeapp.data.bachelor.source.local.BachelorNoticeDao
 import com.mtjin.cnunoticeapp.data.bachelor.source.local.BachelorNoticeLocalDataSource
 import com.mtjin.cnunoticeapp.data.bachelor.source.local.BachelorNoticeLocalDataSourceImpl
+import com.mtjin.cnunoticeapp.data.board.source.local.BoardLocalDataSource
+import com.mtjin.cnunoticeapp.data.board.source.local.BoardLocalDataSourceImpl
 import com.mtjin.cnunoticeapp.data.business.source.local.BusinessNoticeDao
 import com.mtjin.cnunoticeapp.data.business.source.local.BusinessNoticeLocalDataSource
 import com.mtjin.cnunoticeapp.data.business.source.local.BusinessNoticeLocalDataSourceImpl
@@ -17,6 +19,7 @@ import com.mtjin.cnunoticeapp.data.general.source.local.GeneralNoticeDao
 import com.mtjin.cnunoticeapp.data.general.source.local.GeneralNoticeLocalDataSource
 import com.mtjin.cnunoticeapp.data.general.source.local.GeneralNoticeLocalDataSourceImpl
 import com.mtjin.cnunoticeapp.database.NoticeDatabase
+import com.mtjin.cnunoticeapp.utils.SharedPrefManager
 import org.koin.core.module.Module
 import org.koin.dsl.module
 
@@ -26,6 +29,7 @@ val localDataModule: Module = module {
     single<BusinessNoticeLocalDataSource> { BusinessNoticeLocalDataSourceImpl(get()) }
     single<EmployNoticeLocalDataSource> { EmployNoticeLocalDataSourceImpl(get()) }
     single<FavoriteNoticeLocalDataSource> { FavoriteNoticeLocalDataSourceImpl(get()) }
+    single<BoardLocalDataSource> { BoardLocalDataSourceImpl(get()) }
 
     single<BachelorNoticeDao> { get<NoticeDatabase>().bachelorNoticeDao() }
     single<GeneralNoticeDao> { get<NoticeDatabase>().generalNoticeDao() }
@@ -39,4 +43,5 @@ val localDataModule: Module = module {
             NoticeDatabase::class.java, "Notice.db"
         ).build()
     }
+    single<SharedPrefManager> { SharedPrefManager(get()) }
 }

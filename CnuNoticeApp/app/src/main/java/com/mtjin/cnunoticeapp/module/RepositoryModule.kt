@@ -2,6 +2,8 @@ package com.mtjin.cnunoticeapp.module
 
 import com.mtjin.cnunoticeapp.data.bachelor.source.BachelorNoticeRepository
 import com.mtjin.cnunoticeapp.data.bachelor.source.BachelorNoticeRepositoryImpl
+import com.mtjin.cnunoticeapp.data.board.source.BoardRepository
+import com.mtjin.cnunoticeapp.data.board.source.BoardRepositoryImpl
 import com.mtjin.cnunoticeapp.data.business.source.BusinessNoticeRepository
 import com.mtjin.cnunoticeapp.data.business.source.BusinessNoticeRepositoryImpl
 import com.mtjin.cnunoticeapp.data.employ.source.EmployNoticeRepository
@@ -19,4 +21,5 @@ val repositoryModule: Module = module {
     single<BusinessNoticeRepository> { BusinessNoticeRepositoryImpl(get(), get()) }
     single<EmployNoticeRepository> { EmployNoticeRepositoryImpl(get(), get()) }
     single<FavoriteNoticeRepository> { FavoriteNoticeRepositoryImpl(get()) }
+    single<BoardRepository> { BoardRepositoryImpl(get()) }
 }

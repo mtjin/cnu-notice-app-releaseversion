@@ -20,5 +20,5 @@ val viewModelModule: Module = module {
     viewModel { FavoriteViewModel(get()) }
     viewModel { LoginViewModel() }
     viewModel { MainViewModel() }
-    viewModel { BoardViewModel() }
+    viewModel { BoardViewModel(get()) }
 }
