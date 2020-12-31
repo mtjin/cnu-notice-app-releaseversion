@@ -20,12 +20,17 @@ class BoardActivity : BaseActivity<ActivityBoardBinding>(R.layout.activity_board
     private fun initViewModelCallback() {
         with(viewModel) {
             univAuthSuccess.observe(this@BoardActivity, Observer { success ->
-                if (success) binding.layoutUnivAuth.visibility = View.GONE
-                else showToast(getString(R.string.univ_auth_fail_msg))
+                if (success) {
+                    binding.layoutUnivAuth.visibility = View.GONE
+                    binding.layoutBoard.visibility = View.VISIBLE
+                } else showToast(getString(R.string.univ_auth_fail_msg))
             })
 
             alreadyUnivAuth.observe(this@BoardActivity, Observer { isAlreadyAuth ->
-                if (isAlreadyAuth) binding.layoutUnivAuth.visibility = View.GONE
+                if (isAlreadyAuth) {
+                    binding.layoutUnivAuth.visibility = View.GONE
+                    binding.layoutBoard.visibility = View.VISIBLE
+                }
             })
         }
     }

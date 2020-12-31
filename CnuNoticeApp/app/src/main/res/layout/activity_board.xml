@@ -54,8 +54,83 @@
                 android:textStyle="bold"
                 app:button_duration="200"
                 app:button_scale="0.95" />
-
         </LinearLayout>
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_board"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_free"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/padding_32dp"
+                android:paddingTop="@dimen/padding_12dp"
+                android:paddingEnd="0dp"
+                android:paddingBottom="@dimen/padding_12dp"
+                android:text="@string/free_board_text"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_size_20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_graduate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/padding_32dp"
+                android:paddingTop="@dimen/padding_12dp"
+                android:paddingEnd="0dp"
+                android:paddingBottom="@dimen/padding_12dp"
+                android:text="@string/graduate_board_text"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_size_20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_free" />
+
+            <TextView
+                android:id="@+id/tv_freshman"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/padding_32dp"
+                android:paddingTop="@dimen/padding_12dp"
+                android:paddingEnd="0dp"
+                android:paddingBottom="@dimen/padding_12dp"
+                android:text="@string/freshman_board_text"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_size_20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_graduate" />
+
+            <TextView
+                android:id="@+id/tv_employment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/padding_32dp"
+                android:paddingTop="@dimen/padding_12dp"
+                android:paddingEnd="0dp"
+                android:paddingBottom="@dimen/padding_12dp"
+                android:text="@string/employment_board_text"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_size_20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_freshman" />
+
+            <TextView
+                android:id="@+id/tv_major"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/padding_32dp"
+                android:paddingTop="@dimen/padding_12dp"
+                android:paddingEnd="0dp"
+                android:paddingBottom="@dimen/padding_12dp"
+                android:text="@string/major_board_text"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_size_20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_employment" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
