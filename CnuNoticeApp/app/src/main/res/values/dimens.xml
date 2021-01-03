@@ -9,4 +9,6 @@
     <dimen name="text_size_20sp">20sp</dimen>
     <dimen name="padding_32dp">32dp</dimen>
     <dimen name="padding_12dp">12dp</dimen>
+    <dimen name="text_size_24sp">24sp</dimen>
+    <dimen name="margin_28dp">28dp</dimen>
 </resources>
