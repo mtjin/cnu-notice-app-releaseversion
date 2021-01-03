@@ -35,4 +35,6 @@
     <string name="freshman_board_text">새내기게시판</string>
     <string name="employment_board_text">취업게시판</string>
     <string name="major_board_text">전공게시판</string>
+    <string name="write_text">작성하기</string>
+    <string name="title_write_text">글 쓰기</string>
 </resources>

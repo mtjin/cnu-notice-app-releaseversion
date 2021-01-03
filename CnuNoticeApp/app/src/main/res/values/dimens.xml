@@ -16,4 +16,5 @@
     <dimen name="text_size_10sp">10sp</dimen>
     <dimen name="height_1dp">1dp</dimen>
     <dimen name="padding_4dp">4dp</dimen>
+    <dimen name="text_size_16sp">16sp</dimen>
 </resources>
