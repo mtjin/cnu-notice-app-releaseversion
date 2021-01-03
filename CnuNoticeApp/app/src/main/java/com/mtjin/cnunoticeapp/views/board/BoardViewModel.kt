@@ -9,9 +9,11 @@ import com.mtjin.cnunoticeapp.utils.SingleLiveEvent
 class BoardViewModel(private val repository: BoardRepository) : BaseViewModel() {
     private val _univAuthSuccess = SingleLiveEvent<Boolean>() //대학교인증 EditText
     private val _alreadyUnivAuth = SingleLiveEvent<Boolean>() //이미 대학교 인증 여부
+    private val _goBoardList = SingleLiveEvent<String>() //해당 주제 대학교 게시판 이동
 
     val univAuthSuccess: LiveData<Boolean> get() = _univAuthSuccess
     val alreadyUnivAuth: LiveData<Boolean> get() = _alreadyUnivAuth
+    val goBoardList: LiveData<String> get() = _goBoardList
 
     // two-way binding
     var univAuthText: MutableLiveData<String> = MutableLiveData("")
@@ -27,6 +29,10 @@ class BoardViewModel(private val repository: BoardRepository) : BaseViewModel() 
 
     fun requestAlreadyAuth() {
         _alreadyUnivAuth.value = repository.univAuth
+    }
+
+    fun goBoardList(board: String) {
+        _goBoardList.value = board
     }
 
     companion object {
