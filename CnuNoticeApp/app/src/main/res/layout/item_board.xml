@@ -11,8 +11,107 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_board"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/padding_12dp"
+        android:paddingTop="@dimen/padding_12dp"
+        android:paddingEnd="@dimen/padding_12dp">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="제목ㅁㅁㅁㅁㅁㅁㄴㅇㅁㅇㅇㄴㅁㅇasdasdㄴㅁㅇasdsad" />
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_4dp"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            tools:text="내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다" />
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_4dp"
+            android:textSize="@dimen/text_size_10sp"
+            app:layout_constraintEnd_toStartOf="@id/text_middle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_content"
+            tools:text="12:30" />
+
+        <TextView
+            android:id="@+id/text_middle"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_4dp"
+            android:background="@color/colorWhiteGray"
+            app:layout_constraintBottom_toBottomOf="@id/tv_date"
+            app:layout_constraintEnd_toStartOf="@id/tv_id"
+            app:layout_constraintStart_toEndOf="@id/tv_date"
+            app:layout_constraintTop_toTopOf="@id/tv_date" />
+
+        <TextView
+            android:id="@+id/tv_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_4dp"
+            android:textSize="@dimen/text_size_10sp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_date"
+            app:layout_constraintStart_toEndOf="@id/text_middle"
+            app:layout_constraintTop_toTopOf="@id/tv_date"
+            tools:text="익명아이디" />
+
+        <TextView
+            android:id="@+id/tv_comment_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/padding_4dp"
+            android:textSize="@dimen/text_size_12sp"
+            app:drawableStartCompat="@drawable/ic_baseline_mode_comment_12"
+            app:layout_constraintBottom_toBottomOf="@id/tv_date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_date"
+            tools:text="0" />
+
+        <TextView
+            android:id="@+id/tv_recomment_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_12dp"
+            android:drawablePadding="@dimen/padding_4dp"
+            android:textSize="@dimen/text_size_12sp"
+            app:drawableStartCompat="@drawable/ic_baseline_thumb_up_12"
+            app:layout_constraintBottom_toBottomOf="@id/tv_date"
+            app:layout_constraintEnd_toStartOf="@id/tv_comment_count"
+            app:layout_constraintTop_toTopOf="@id/tv_date"
+            tools:text="0" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_1dp"
+            android:layout_marginTop="@dimen/margin_4dp"
+            android:background="@color/colorWhiteGray"
+            app:layout_constraintTop_toBottomOf="@id/tv_date" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
