@@ -1,6 +1,7 @@
 package com.mtjin.cnunoticeapp.views.board_write
 
 import android.os.Bundle
+import androidx.lifecycle.Observer
 import com.mtjin.cnunoticeapp.R
 import com.mtjin.cnunoticeapp.base.BaseActivity
 import com.mtjin.cnunoticeapp.databinding.ActivityBoardWriteBinding
@@ -18,7 +19,17 @@ class BoardWriteActivity : BaseActivity<ActivityBoardWriteBinding>(R.layout.acti
 
     private fun initViewModelCallback() {
         with(viewModel) {
+            emptyMsg.observe(this@BoardWriteActivity, Observer {
+                showToast(getString(R.string.please_insert_content_msg))
+            })
 
+            insertBoardSuccess.observe(this@BoardWriteActivity, Observer { success ->
+                if (!success) showToast(getString(R.string.write_err_msg))
+                else {
+                    showToast(getString(R.string.write_compelete_msg))
+                    finish()
+                }
+            })
         }
     }
 
