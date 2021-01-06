@@ -90,4 +90,6 @@ dependencies {
     // 테드 퍼미션
     implementation 'gun0912.ted:tedpermission:2.2.3'
     implementation 'gun0912.ted:tedpermission-rx2:2.2.3'
+    //lottie
+    implementation 'com.airbnb.android:lottie:3.0.7'
 }
