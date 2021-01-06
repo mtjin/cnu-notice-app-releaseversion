@@ -1,5 +1,6 @@
 package com.mtjin.cnunoticeapp.views.board_write
 
+import android.net.Uri
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.mtjin.cnunoticeapp.base.BaseViewModel
@@ -13,12 +14,15 @@ import io.reactivex.schedulers.Schedulers
 class BoardWriteViewModel(private val repository: BoardWriteRepository) :
     BaseViewModel() {
     lateinit var boardName: String
+    var imageUri: Uri? = null
 
     private val _emptyMsg = SingleLiveEvent<String>()
     private val _insertBoardSuccess = SingleLiveEvent<Boolean>()
+    private val _pickImage = SingleLiveEvent<Unit>()
 
     val emptyMsg: LiveData<String> get() = _emptyMsg
     val insertBoardSuccess: LiveData<Boolean> get() = _insertBoardSuccess
+    val pickImage: LiveData<Unit> get() = _pickImage
 
     var title = MutableLiveData("")
     var content = MutableLiveData("")
@@ -40,6 +44,11 @@ class BoardWriteViewModel(private val repository: BoardWriteRepository) :
                     )
             }
         }
+    }
+
+    //갤러리선택
+    fun pickImage() {
+        _pickImage.call()
     }
 
 

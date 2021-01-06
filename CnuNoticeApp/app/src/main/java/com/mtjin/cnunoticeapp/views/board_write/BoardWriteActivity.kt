@@ -1,5 +1,6 @@
 package com.mtjin.cnunoticeapp.views.board_write
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import com.mtjin.cnunoticeapp.R
@@ -10,6 +11,8 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class BoardWriteActivity : BaseActivity<ActivityBoardWriteBinding>(R.layout.activity_board_write) {
     private val viewModel: BoardWriteViewModel by viewModel()
+    private val RC_PICK_IMAGE = 1001
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.vm = viewModel
@@ -30,6 +33,12 @@ class BoardWriteActivity : BaseActivity<ActivityBoardWriteBinding>(R.layout.acti
                     finish()
                 }
             })
+
+            pickImage.observe(this@BoardWriteActivity, Observer {
+                val intent = Intent(Intent.ACTION_PICK)
+                intent.type = "image/*"
+                startActivityForResult(intent, RC_PICK_IMAGE)
+            })
         }
     }
 
@@ -38,5 +47,15 @@ class BoardWriteActivity : BaseActivity<ActivityBoardWriteBinding>(R.layout.acti
             intent.getStringExtra(EXTRA_BOARD_NAME)
                 ?: throw IllegalArgumentException(getString(R.string.no_extra_value_exception))
         viewModel.boardName = boardName
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == RESULT_OK && requestCode == RC_PICK_IMAGE) {
+            data?.data?.let {
+                binding.ivImage.setImageURI(it)
+                viewModel.imageUri = it
+            }
+        }
     }
 }
