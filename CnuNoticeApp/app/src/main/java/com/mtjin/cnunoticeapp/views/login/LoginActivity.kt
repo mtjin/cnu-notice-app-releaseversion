@@ -69,7 +69,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     showToast(getString(R.string.login_success_text))
-                    FirebaseHelper.user = FirebaseHelper.auth.currentUser
+                    FirebaseHelper.user = FirebaseHelper.auth.currentUser!!
                     startActivity(Intent(this, MainActivity::class.java))
                 } else {
                     showToast(getString(R.string.login_fail_text))

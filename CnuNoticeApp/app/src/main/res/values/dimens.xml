@@ -19,4 +19,5 @@
     <dimen name="text_size_16sp">16sp</dimen>
     <dimen name="margin_24dp">24dp</dimen>
     <dimen name="margin_49dp">49dp</dimen>
+    <dimen name="size_100dp">100dp</dimen>
 </resources>

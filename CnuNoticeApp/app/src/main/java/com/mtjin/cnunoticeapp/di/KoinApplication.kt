@@ -19,7 +19,8 @@ class KoinApplication : Application() {
                 localDataModule,
                 remoteDataModule,
                 viewModelModule,
-                apiModule
+                apiModule,
+                firebaseModule
             )
 
         }

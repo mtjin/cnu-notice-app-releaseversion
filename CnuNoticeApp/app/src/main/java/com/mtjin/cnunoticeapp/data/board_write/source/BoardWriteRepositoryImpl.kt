@@ -19,7 +19,7 @@ class BoardWriteRepositoryImpl(
     override fun insertBoard(board: Board, type: String): Completable {
         return Completable.create { emitter ->
             db.collection(DB_BOARD + "_" + type)
-                .document(board.timestamp.toString())
+                .document(board.id.toString())
                 .set(board)
                 .addOnSuccessListener {
                     emitter.onComplete()

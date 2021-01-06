@@ -1,9 +1,8 @@
 package com.mtjin.cnunoticeapp.data.board_list
 
 data class Board(
-    var id: String = "",
+    var id: Long = 0,
     var writerId: String = "",
-    var timestamp: Long = 0,
     var title: String = "",
     var content: String = "",
     var image : String = "",

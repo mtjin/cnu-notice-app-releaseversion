@@ -39,6 +39,11 @@ class BoardWriteActivity : BaseActivity<ActivityBoardWriteBinding>(R.layout.acti
                 intent.type = "image/*"
                 startActivityForResult(intent, RC_PICK_IMAGE)
             })
+
+            isLottieLoading.observe(this@BoardWriteActivity, Observer { loading ->
+                if (loading) showProgressDialog()
+                else hideProgressDialog()
+            })
         }
     }
 

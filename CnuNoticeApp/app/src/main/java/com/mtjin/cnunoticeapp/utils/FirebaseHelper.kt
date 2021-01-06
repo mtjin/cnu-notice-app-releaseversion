@@ -4,6 +4,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
 object FirebaseHelper {
-    var user: FirebaseUser? = null
+    lateinit var user: FirebaseUser
     val auth: FirebaseAuth = FirebaseAuth.getInstance()
 }
