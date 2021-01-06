@@ -87,4 +87,5 @@ dependencies {
     implementation "com.github.skydoves:elasticviews:2.0.9"
     // 테드 퍼미션
     implementation 'gun0912.ted:tedpermission:2.2.3'
+    implementation 'gun0912.ted:tedpermission-rx2:2.2.3'
 }
