@@ -3,7 +3,7 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorBlack</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/colorWhiteBlue</item>
     </style>
 
     <style name = "SplashTheme" parent= "Theme.AppCompat.NoActionBar">
