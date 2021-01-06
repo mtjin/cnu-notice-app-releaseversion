@@ -3,9 +3,11 @@ package com.mtjin.cnunoticeapp.views.board_write
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.mtjin.cnunoticeapp.base.BaseViewModel
+import com.mtjin.cnunoticeapp.data.board_write.source.BoardWriteRepository
 import com.mtjin.cnunoticeapp.utils.SingleLiveEvent
 
-class BoardWriteViewModel : BaseViewModel() {
+class BoardWriteViewModel(private val boardWriteRepository: BoardWriteRepository) :
+    BaseViewModel() {
     lateinit var boardName: String
 
     private val _emptyMsg = SingleLiveEvent<String>()
