@@ -24,5 +24,5 @@ val repositoryModule: Module = module {
     single<EmployNoticeRepository> { EmployNoticeRepositoryImpl(get(), get()) }
     single<FavoriteNoticeRepository> { FavoriteNoticeRepositoryImpl(get()) }
     single<BoardRepository> { BoardRepositoryImpl(get()) }
-    single<BoardWriteRepository> { BoardWriteRepositoryImpl(get()) }
+    single<BoardWriteRepository> { BoardWriteRepositoryImpl(get(), get()) }
 }
