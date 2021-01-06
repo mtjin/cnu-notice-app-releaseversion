@@ -40,4 +40,7 @@
     <string name="board_write_rule_hint">인터넷 에티켓 문화를 지켜주세요 :)\n좋은 커뮤니티 문화 부탁드립니다.</string>
     <string name="no_extra_value_exception">No Extra Value</string>
     <string name="title_hint">제목</string>
+    <string name="please_insert_content_msg">내용을 입력해주세요</string>
+    <string name="write_err_msg">작성 에러</string>
+    <string name="write_compelete_msg">작성 완료</string>
 </resources>
