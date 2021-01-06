@@ -6,6 +6,7 @@ data class Board(
     var timestamp: Long = 0,
     var title: String = "",
     var content: String = "",
+    var image : String = "",
     var commentList: ArrayList<BoardUser> = ArrayList(),
     var recommendList: ArrayList<BoardUser> = ArrayList()
 )
