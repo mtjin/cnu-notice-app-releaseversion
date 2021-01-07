@@ -1,16 +1,21 @@
 package com.mtjin.cnunoticeapp.views
 
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mtjin.cnunoticeapp.data.bachelor.BachelorNotice
+import com.mtjin.cnunoticeapp.data.board_list.Board
 import com.mtjin.cnunoticeapp.data.business.BusinessNotice
 import com.mtjin.cnunoticeapp.data.employ.EmployNotice
 import com.mtjin.cnunoticeapp.data.favorite.FavoriteNotice
 import com.mtjin.cnunoticeapp.data.general.GeneralNotice
 import com.mtjin.cnunoticeapp.utils.EndlessRecyclerViewScrollListener
+import com.mtjin.cnunoticeapp.utils.extensions.convertBoardTime
 import com.mtjin.cnunoticeapp.views.bachelor.BachelorAdapter
 import com.mtjin.cnunoticeapp.views.bachelor.BachelorNoticeViewModel
+import com.mtjin.cnunoticeapp.views.board_list.BoardAdapter
+import com.mtjin.cnunoticeapp.views.board_list.BoardListViewModel
 import com.mtjin.cnunoticeapp.views.business.BusinessAdapter
 import com.mtjin.cnunoticeapp.views.business.BusinessNoticeViewModel
 import com.mtjin.cnunoticeapp.views.employ.EmployAdapter
@@ -18,6 +23,11 @@ import com.mtjin.cnunoticeapp.views.employ.EmployNoticeViewModel
 import com.mtjin.cnunoticeapp.views.employ.FavoriteAdapter
 import com.mtjin.cnunoticeapp.views.general.GeneralAdapter
 import com.mtjin.cnunoticeapp.views.general.GeneralNoticeViewModel
+
+@BindingAdapter("setBoardTime")
+fun TextView.setBoardTime(timestamp: Long) {
+    text = timestamp.convertBoardTime()
+}
 
 @BindingAdapter("setBachelorItems")
 fun RecyclerView.setBachelorAdapterItems(items: List<BachelorNotice>?) {
@@ -54,6 +64,14 @@ fun RecyclerView.setEmployAdapterItems(items: List<EmployNotice>?) {
 @BindingAdapter("setFavoriteItems")
 fun RecyclerView.setFavoriteAdapterItems(items: List<FavoriteNotice>?) {
     with((adapter as FavoriteAdapter)) {
+        this.clear()
+        items?.let { this.addItems(it) }
+    }
+}
+
+@BindingAdapter("setBoardItems")
+fun RecyclerView.setBoardAdapterItems(items: List<Board>?) {
+    with((adapter as BoardAdapter)) {
         this.clear()
         items?.let { this.addItems(it) }
     }
@@ -106,6 +124,19 @@ fun RecyclerView.setEmployEndlessScroll(
         object : EndlessRecyclerViewScrollListener(layoutManager as LinearLayoutManager) {
             override fun onLoadMore(page: Int, totalItemsCount: Int, view: RecyclerView?) {
                 viewModel.requestMoreNotice(totalItemsCount + 1)
+            }
+        }
+    this.addOnScrollListener(scrollListener)
+}
+
+@BindingAdapter("boardEndlessScroll")
+fun RecyclerView.setBoardEndlessScroll(
+    viewModel: BoardListViewModel
+) {
+    val scrollListener =
+        object : EndlessRecyclerViewScrollListener(layoutManager as LinearLayoutManager) {
+            override fun onLoadMore(page: Int, totalItemsCount: Int, view: RecyclerView?) {
+                viewModel.requestBoards(totalItemsCount + 10)
             }
         }
     this.addOnScrollListener(scrollListener)

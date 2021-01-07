@@ -8,7 +8,7 @@ import com.mtjin.cnunoticeapp.R
 import com.mtjin.cnunoticeapp.data.board_list.Board
 import com.mtjin.cnunoticeapp.databinding.ItemBoardBinding
 
-class BoardAdapter :
+class BoardAdapter(private val itemClick: (Board) -> Unit) :
     RecyclerView.Adapter<BoardAdapter.ViewHolder>() {
     private val items = mutableListOf<Board>()
 
@@ -23,8 +23,7 @@ class BoardAdapter :
             binding.root.setOnClickListener { view ->
                 val position = adapterPosition.takeIf { it != RecyclerView.NO_POSITION }
                     ?: return@setOnClickListener
-
-
+                itemClick(items[position])
             }
         }
     }

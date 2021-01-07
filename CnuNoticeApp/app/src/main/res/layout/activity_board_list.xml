@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
+        <import type="android.view.View" />
 
         <variable
             name="vm"
@@ -41,12 +44,16 @@
 
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_boards"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clipToPadding="false"
             android:layout_marginTop="@dimen/margin_28dp"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintTop_toBottomOf="@id/tv_title"
+            bind:boardEndlessScroll="@{vm}"
+            bind:setBoardItems="@{vm.boardList}"
             tools:itemCount="5"
             tools:listitem="@layout/item_board" />
 
@@ -57,11 +64,20 @@
             android:layout_marginBottom="@dimen/margin_28dp"
             android:backgroundTint="@color/colorWhiteBlue"
             android:onClick="@{()->vm.goBoardWrite()}"
-            android:src="@drawable/ic_baseline_add_white_24"
+            android:src="@drawable/ic_baseline_create_24"
             app:backgroundTint="@color/colorWhiteBlue"
             app:fabutton_duration="200"
             app:fabutton_scale="0.9"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{vm.isLoading() ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

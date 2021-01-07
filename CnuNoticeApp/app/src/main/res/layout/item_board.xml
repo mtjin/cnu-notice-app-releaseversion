@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -24,6 +25,7 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:singleLine="true"
+            android:text="@{item.title}"
             android:textColor="@color/colorBlack"
             android:textSize="@dimen/text_size_18sp"
             android:textStyle="bold"
@@ -39,6 +41,7 @@
             android:layout_marginTop="@dimen/margin_4dp"
             android:ellipsize="end"
             android:singleLine="true"
+            android:text="@{item.content}"
             android:textColor="@color/colorBlack"
             android:textSize="@dimen/text_size_14sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -52,38 +55,17 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_4dp"
             android:textSize="@dimen/text_size_10sp"
-            app:layout_constraintEnd_toStartOf="@id/text_middle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_content"
+            bind:setBoardTime="@{item.id}"
             tools:text="12:30" />
-
-        <TextView
-            android:id="@+id/text_middle"
-            android:layout_width="1dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="@dimen/margin_4dp"
-            android:background="@color/colorWhiteGray"
-            app:layout_constraintBottom_toBottomOf="@id/tv_date"
-            app:layout_constraintEnd_toStartOf="@id/tv_id"
-            app:layout_constraintStart_toEndOf="@id/tv_date"
-            app:layout_constraintTop_toTopOf="@id/tv_date" />
-
-        <TextView
-            android:id="@+id/tv_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_4dp"
-            android:textSize="@dimen/text_size_10sp"
-            app:layout_constraintBottom_toBottomOf="@id/tv_date"
-            app:layout_constraintStart_toEndOf="@id/text_middle"
-            app:layout_constraintTop_toTopOf="@id/tv_date"
-            tools:text="익명아이디" />
 
         <TextView
             android:id="@+id/tv_comment_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawablePadding="@dimen/padding_4dp"
+            android:text="@{String.valueOf(item.commentList.size())}"
             android:textSize="@dimen/text_size_12sp"
             app:drawableStartCompat="@drawable/ic_baseline_mode_comment_12"
             app:layout_constraintBottom_toBottomOf="@id/tv_date"
@@ -97,6 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/margin_12dp"
             android:drawablePadding="@dimen/padding_4dp"
+            android:text="@{String.valueOf(item.recommendList.size())}"
             android:textSize="@dimen/text_size_12sp"
             app:drawableStartCompat="@drawable/ic_baseline_thumb_up_12"
             app:layout_constraintBottom_toBottomOf="@id/tv_date"

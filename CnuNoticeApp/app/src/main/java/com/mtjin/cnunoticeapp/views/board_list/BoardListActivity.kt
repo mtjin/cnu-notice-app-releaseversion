@@ -18,6 +18,18 @@ class BoardListActivity : BaseActivity<ActivityBoardListBinding>(R.layout.activi
         binding.vm = viewModel
         processIntent()
         initViewModelCallback()
+        initAdapter()
+        requestData()
+    }
+
+    private fun requestData() {
+        viewModel.requestBoards(10)
+    }
+
+    private fun initAdapter() {
+        binding.rvBoards.adapter = BoardAdapter(itemClick = {
+
+        })
     }
 
     private fun initViewModelCallback() {
@@ -35,6 +47,5 @@ class BoardListActivity : BaseActivity<ActivityBoardListBinding>(R.layout.activi
             intent.getStringExtra(EXTRA_BOARD_NAME)
                 ?: throw IllegalArgumentException(getString(R.string.no_extra_value_exception))
         viewModel.setBoardName(boardName)
-
     }
 }

@@ -23,6 +23,6 @@ val viewModelModule: Module = module {
     viewModel { LoginViewModel() }
     viewModel { MainViewModel() }
     viewModel { BoardViewModel(get()) }
-    viewModel { BoardListViewModel() }
+    viewModel { BoardListViewModel(get()) }
     viewModel { BoardWriteViewModel(get()) }
 }
