@@ -84,7 +84,7 @@ class BoardWriteActivity : BaseActivity<ActivityBoardWriteBinding>(R.layout.acti
                 } else {
                     binding.tvImageCount.visibility = View.GONE
                 }
-            } else {
+            } else { // 단일 선택
                 data?.data?.let { uri ->
                     viewModel.imageUriList.clear()
                     viewModel.imageUriList.add(uri)
