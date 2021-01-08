@@ -68,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:onClick="@{()->vm.goBoardList(@string/free_board_text)}"
                 android:paddingStart="@dimen/padding_32dp"
-                android:paddingTop="@dimen/padding_12dp"
+                android:paddingTop="@dimen/margin_24dp"
                 android:paddingEnd="0dp"
                 android:paddingBottom="@dimen/padding_12dp"
                 android:text="@string/free_board_text"
