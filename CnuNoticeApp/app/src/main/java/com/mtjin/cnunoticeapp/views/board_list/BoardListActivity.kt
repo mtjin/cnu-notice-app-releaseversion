@@ -8,6 +8,7 @@ import com.mtjin.cnunoticeapp.base.BaseActivity
 import com.mtjin.cnunoticeapp.databinding.ActivityBoardListBinding
 import com.mtjin.cnunoticeapp.utils.constants.EXTRA_BOARD
 import com.mtjin.cnunoticeapp.utils.constants.EXTRA_BOARD_NAME
+import com.mtjin.cnunoticeapp.views.board_detail.BoardDetailActivity
 import com.mtjin.cnunoticeapp.views.board_write.BoardWriteActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -29,7 +30,7 @@ class BoardListActivity : BaseActivity<ActivityBoardListBinding>(R.layout.activi
 
     private fun initAdapter() {
         binding.rvBoards.adapter = BoardAdapter(itemClick = { board ->
-            val intent = Intent(this@BoardListActivity, BoardWriteActivity::class.java)
+            val intent = Intent(this@BoardListActivity, BoardDetailActivity::class.java)
             intent.putExtra(EXTRA_BOARD, board)
             startActivity(intent)
         })
