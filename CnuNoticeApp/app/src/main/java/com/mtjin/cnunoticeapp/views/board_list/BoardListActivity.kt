@@ -24,6 +24,11 @@ class BoardListActivity : BaseActivity<ActivityBoardListBinding>(R.layout.activi
         requestData()
     }
 
+    override fun onRestart() {
+        requestData()
+        super.onRestart()
+    }
+
     private fun requestData() {
         viewModel.requestBoards(10)
     }

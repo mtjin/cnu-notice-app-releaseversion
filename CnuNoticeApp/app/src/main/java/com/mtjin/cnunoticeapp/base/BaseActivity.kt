@@ -1,6 +1,7 @@
 package com.mtjin.cnunoticeapp.base
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
@@ -20,6 +21,7 @@ abstract class BaseActivity<B : ViewDataBinding>(
 
     override fun onStart() {
         uuid = SharedPrefManager(this).uuid
+        Log.d("BaseActivity uuid", uuid)
         super.onStart()
     }
 
