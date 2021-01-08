@@ -8,11 +8,12 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.mtjin.cnunoticeapp.R
 import com.mtjin.cnunoticeapp.base.BaseActivity
 import com.mtjin.cnunoticeapp.databinding.ActivityLoginBinding
-import com.mtjin.cnunoticeapp.utils.FirebaseHelper
+import com.mtjin.cnunoticeapp.utils.SharedPrefManager
 import com.mtjin.cnunoticeapp.views.main.MainActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -65,11 +66,12 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
 
     private fun firebaseAuthWithGoogle(acct: GoogleSignInAccount) {
         val credential = GoogleAuthProvider.getCredential(acct.idToken, null)
-        FirebaseHelper.auth.signInWithCredential(credential)
+        val auth = FirebaseAuth.getInstance()
+        auth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     showToast(getString(R.string.login_success_text))
-                    FirebaseHelper.user = FirebaseHelper.auth.currentUser!!
+                    SharedPrefManager(this).uuid = auth.currentUser!!.uid
                     startActivity(Intent(this, MainActivity::class.java))
                 } else {
                     showToast(getString(R.string.login_fail_text))

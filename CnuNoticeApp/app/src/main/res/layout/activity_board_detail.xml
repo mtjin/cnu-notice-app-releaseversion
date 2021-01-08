@@ -149,6 +149,7 @@
                 android:maxLength="200"
                 android:maxLines="1"
                 android:singleLine="true"
+                android:text="@={vm.commentInput}"
                 android:textSize="@dimen/text_size_12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/iv_send"

@@ -15,8 +15,17 @@ class SharedPrefManager(context: Context) {
             editor.apply()
         }
 
+    var uuid: String
+        get() = sharedPref.getString(UUID, "")!!
+        set(value) {
+            val editor = sharedPref.edit()
+            editor.putString(UUID, value)
+            editor.apply()
+        }
+
     companion object {
         private const val CNU_APP = "CNU_APP"
         private const val UNIV_AUTH_KEY = "UNIV_AUTH_KEY" //대학교 인증
+        private const val UUID = "UUID" //UUID
     }
 }

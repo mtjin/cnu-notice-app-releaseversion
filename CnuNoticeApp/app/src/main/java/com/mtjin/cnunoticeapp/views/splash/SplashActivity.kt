@@ -6,7 +6,7 @@ import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.mtjin.cnunoticeapp.utils.FirebaseHelper
+import com.mtjin.cnunoticeapp.utils.SharedPrefManager
 import com.mtjin.cnunoticeapp.views.login.LoginActivity
 import com.mtjin.cnunoticeapp.views.main.MainActivity
 
@@ -21,7 +21,7 @@ class SplashActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         if (auth.currentUser != null) {
             Toast.makeText(this, "자동 로그인", Toast.LENGTH_SHORT).show()
-            FirebaseHelper.user = FirebaseHelper.auth.currentUser!!
+            SharedPrefManager(this).uuid = auth.currentUser!!.uid
             startActivity(Intent(this, MainActivity::class.java))
         } else {
             startActivity(Intent(this, LoginActivity::class.java))

@@ -6,6 +6,8 @@ import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import com.mtjin.cnunoticeapp.utils.SharedPrefManager
+import com.mtjin.cnunoticeapp.utils.constants.uuid
 import com.mtjin.cnunoticeapp.views.dialog.LottieDialogFragment
 import io.reactivex.disposables.CompositeDisposable
 
@@ -15,6 +17,11 @@ abstract class BaseActivity<B : ViewDataBinding>(
     lateinit var binding: B
     private val compositeDisposable = CompositeDisposable()
     lateinit var lottieDialog: LottieDialogFragment
+
+    override fun onStart() {
+        uuid = SharedPrefManager(this).uuid
+        super.onStart()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

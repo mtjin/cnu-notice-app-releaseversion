@@ -1,6 +1,7 @@
 package com.mtjin.cnunoticeapp.utils.constants
 
 const val TAG = "LOG_TAG"
+lateinit var uuid: String
 
 const val EXTRA_NOTICE_SAVE = "EXTRA_NOTICE_SAVE" //공지 즐겨찾기 추가
 const val EXTRA_NOTICE_DELETE = "EXTRA_NOTICE_DELETE" //공지 즐겨찾기 삭제

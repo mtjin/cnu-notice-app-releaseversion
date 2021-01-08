@@ -7,9 +7,9 @@ import androidx.lifecycle.MutableLiveData
 import com.mtjin.cnunoticeapp.base.BaseViewModel
 import com.mtjin.cnunoticeapp.data.board_list.Board
 import com.mtjin.cnunoticeapp.data.board_write.source.BoardWriteRepository
-import com.mtjin.cnunoticeapp.utils.FirebaseHelper
 import com.mtjin.cnunoticeapp.utils.SingleLiveEvent
 import com.mtjin.cnunoticeapp.utils.constants.TAG
+import com.mtjin.cnunoticeapp.utils.constants.uuid
 import com.mtjin.cnunoticeapp.utils.extensions.getTimestamp
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.rxkotlin.addTo
@@ -40,7 +40,7 @@ class BoardWriteViewModel(private val repository: BoardWriteRepository) :
             else -> { //작성조건 충족
                 val board = Board(
                     id = getTimestamp(),
-                    writerId = FirebaseHelper.user.uid,
+                    writerId = uuid,
                     title = title.value!!,
                     content = content.value!!
                 )

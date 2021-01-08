@@ -6,7 +6,7 @@ import com.mtjin.cnunoticeapp.data.board_list.Board
 import io.reactivex.Completable
 import io.reactivex.Single
 
-class BoardDetailRepositoryImpl( private val db: FirebaseFirestore) : BoardDetailRepository {
+class BoardDetailRepositoryImpl(private val db: FirebaseFirestore) : BoardDetailRepository {
     override fun insertComment(comment: Comment): Completable {
         TODO("Not yet implemented")
     }
