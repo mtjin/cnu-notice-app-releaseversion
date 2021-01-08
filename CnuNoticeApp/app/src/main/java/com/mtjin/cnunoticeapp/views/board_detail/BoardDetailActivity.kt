@@ -7,6 +7,7 @@ import com.mtjin.cnunoticeapp.base.BaseActivity
 import com.mtjin.cnunoticeapp.data.board_list.Board
 import com.mtjin.cnunoticeapp.databinding.ActivityBoardDetailBinding
 import com.mtjin.cnunoticeapp.utils.constants.EXTRA_BOARD
+import com.mtjin.cnunoticeapp.utils.constants.EXTRA_BOARD_NAME
 import com.mtjin.cnunoticeapp.utils.constants.EXTRA_IMAGE_URL
 import com.mtjin.cnunoticeapp.views.photo_zoom.PhotoZoomActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -31,6 +32,8 @@ class BoardDetailActivity :
 
     private fun processIntent() {
         val board = intent.getParcelableExtra<Board>(EXTRA_BOARD)
+        val boardName = intent.getStringExtra(EXTRA_BOARD_NAME)
         binding.item = board
+        viewModel.boardName = boardName!!
     }
 }

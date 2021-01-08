@@ -26,5 +26,5 @@ val viewModelModule: Module = module {
     viewModel { BoardViewModel(get()) }
     viewModel { BoardListViewModel(get()) }
     viewModel { BoardWriteViewModel(get()) }
-    viewModel { BoardDetailViewModel() }
+    viewModel { BoardDetailViewModel(get()) }
 }

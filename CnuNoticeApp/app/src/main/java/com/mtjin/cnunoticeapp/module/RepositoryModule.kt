@@ -4,6 +4,8 @@ import com.mtjin.cnunoticeapp.data.bachelor.source.BachelorNoticeRepository
 import com.mtjin.cnunoticeapp.data.bachelor.source.BachelorNoticeRepositoryImpl
 import com.mtjin.cnunoticeapp.data.board.source.BoardRepository
 import com.mtjin.cnunoticeapp.data.board.source.BoardRepositoryImpl
+import com.mtjin.cnunoticeapp.data.board_detail.source.BoardDetailRepository
+import com.mtjin.cnunoticeapp.data.board_detail.source.BoardDetailRepositoryImpl
 import com.mtjin.cnunoticeapp.data.board_list.source.BoardListRepository
 import com.mtjin.cnunoticeapp.data.board_list.source.BoardListRepositoryImpl
 import com.mtjin.cnunoticeapp.data.board_write.source.BoardWriteRepository
@@ -28,4 +30,5 @@ val repositoryModule: Module = module {
     single<BoardRepository> { BoardRepositoryImpl(get()) }
     single<BoardWriteRepository> { BoardWriteRepositoryImpl(get(), get()) }
     single<BoardListRepository> { BoardListRepositoryImpl(get()) }
+    single<BoardDetailRepository> { BoardDetailRepositoryImpl(get()) }
 }

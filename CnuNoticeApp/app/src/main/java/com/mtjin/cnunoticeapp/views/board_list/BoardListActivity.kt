@@ -32,6 +32,7 @@ class BoardListActivity : BaseActivity<ActivityBoardListBinding>(R.layout.activi
         binding.rvBoards.adapter = BoardAdapter(itemClick = { board ->
             val intent = Intent(this@BoardListActivity, BoardDetailActivity::class.java)
             intent.putExtra(EXTRA_BOARD, board)
+            intent.putExtra(EXTRA_BOARD_NAME, viewModel.boardName.value)
             startActivity(intent)
         })
     }
