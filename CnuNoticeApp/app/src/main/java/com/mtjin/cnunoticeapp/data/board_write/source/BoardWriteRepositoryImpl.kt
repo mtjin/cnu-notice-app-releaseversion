@@ -32,9 +32,9 @@ class BoardWriteRepositoryImpl(
     //다중 이미지 업로드
     override fun uploadImage(imageUriList: List<Uri>): Single<ArrayList<String>> {
         return Single.create { emitter ->
-            val storageRef = storage.child(getTimestamp().toString() + ".png")
             val resultList = ArrayList<String>()
             for (imageUri in imageUriList) {
+                val storageRef = storage.child("게시판/" + getTimestamp().toString() + ".png")
                 val uploadTask = storageRef.putFile(imageUri)
                 uploadTask.continueWithTask { task ->
                     storageRef.downloadUrl
