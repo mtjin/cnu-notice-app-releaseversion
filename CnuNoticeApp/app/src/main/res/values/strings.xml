@@ -43,4 +43,6 @@
     <string name="please_insert_content_msg">내용을 입력해주세요</string>
     <string name="write_err_msg">작성 에러</string>
     <string name="write_compelete_msg">작성 완료</string>
+    <string name="max_image_select_msg">사진의 최대 개수는 10장 입니다.</string>
+    <string name="please_enter_comment_hint">댓글을 입력하세요.</string>
 </resources>

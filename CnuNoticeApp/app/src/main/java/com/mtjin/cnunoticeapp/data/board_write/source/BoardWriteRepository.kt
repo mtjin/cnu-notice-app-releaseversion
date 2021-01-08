@@ -7,5 +7,5 @@ import io.reactivex.Single
 
 interface BoardWriteRepository {
     fun insertBoard(board: Board, type: String): Completable //게시판 작성완료
-    fun uploadImage(imageUri: Uri): Single<String> //이미지 업로그
+    fun uploadImage(imageUriList: List<Uri>): Single<ArrayList<String>> //다중 이미지 업로드
 }

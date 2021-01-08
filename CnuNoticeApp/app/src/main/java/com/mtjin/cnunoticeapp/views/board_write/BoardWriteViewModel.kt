@@ -19,7 +19,7 @@ import io.reactivex.schedulers.Schedulers
 class BoardWriteViewModel(private val repository: BoardWriteRepository) :
     BaseViewModel() {
     lateinit var boardName: String
-    var imageUri: Uri? = null
+    var imageUriList = ArrayList<Uri>()
 
     private val _emptyMsg = SingleLiveEvent<String>()
     private val _insertBoardSuccess = SingleLiveEvent<Boolean>()
@@ -44,13 +44,13 @@ class BoardWriteViewModel(private val repository: BoardWriteRepository) :
                     title = title.value!!,
                     content = content.value!!
                 )
-                if (imageUri != null) { //사진 첨부 한 경우
-                    repository.uploadImage(imageUri!!)
+                if (imageUriList.isNotEmpty()) { //사진 첨부 한 경우
+                    repository.uploadImage(imageUriList)
                         .doOnError {
                             _insertBoardSuccess.value = false
                             Log.d(TAG, it.message.toString())
-                        }.flatMapCompletable { imageUrl ->
-                            board.image = imageUrl
+                        }.flatMapCompletable { imageResultList ->
+                            board.imageList.addAll(imageResultList)
                             repository.insertBoard(board = board, type = boardName)
                         }
                         .subscribeOn(Schedulers.io())

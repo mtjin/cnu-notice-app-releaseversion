@@ -4,7 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <application
         android:name=".di.KoinApplication"
         android:allowBackup="false"
@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".views.board_detail.BoardDetailActivity"></activity>
+        <activity android:name=".views.photo_zoom.PhotoZoomActivity"></activity>
+        <activity android:name=".views.board_detail.BoardDetailActivity" />
         <activity android:name=".views.board_write.BoardWriteActivity" />
         <activity android:name=".views.board_list.BoardListActivity" />
         <activity android:name=".views.board.BoardActivity" />

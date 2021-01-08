@@ -2,6 +2,7 @@ package com.mtjin.cnunoticeapp.module
 
 import com.mtjin.cnunoticeapp.views.bachelor.BachelorNoticeViewModel
 import com.mtjin.cnunoticeapp.views.board.BoardViewModel
+import com.mtjin.cnunoticeapp.views.board_detail.BoardDetailViewModel
 import com.mtjin.cnunoticeapp.views.board_list.BoardListViewModel
 import com.mtjin.cnunoticeapp.views.board_write.BoardWriteViewModel
 import com.mtjin.cnunoticeapp.views.business.BusinessNoticeViewModel
@@ -25,4 +26,5 @@ val viewModelModule: Module = module {
     viewModel { BoardViewModel(get()) }
     viewModel { BoardListViewModel(get()) }
     viewModel { BoardWriteViewModel(get()) }
+    viewModel { BoardDetailViewModel() }
 }

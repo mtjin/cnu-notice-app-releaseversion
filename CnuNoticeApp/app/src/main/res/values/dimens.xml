@@ -20,4 +20,7 @@
     <dimen name="margin_24dp">24dp</dimen>
     <dimen name="margin_49dp">49dp</dimen>
     <dimen name="size_100dp">100dp</dimen>
+    <dimen name="margin_16dp">16dp</dimen>
+    <dimen name="margin_8dp">8dp</dimen>
+    <dimen name="padding_8dp">8dp</dimen>
 </resources>

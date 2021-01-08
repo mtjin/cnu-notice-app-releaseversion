@@ -1,9 +1,11 @@
 package com.mtjin.cnunoticeapp.views
 
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.mtjin.cnunoticeapp.data.bachelor.BachelorNotice
 import com.mtjin.cnunoticeapp.data.board_list.Board
 import com.mtjin.cnunoticeapp.data.business.BusinessNotice
@@ -14,6 +16,7 @@ import com.mtjin.cnunoticeapp.utils.EndlessRecyclerViewScrollListener
 import com.mtjin.cnunoticeapp.utils.extensions.convertBoardTime
 import com.mtjin.cnunoticeapp.views.bachelor.BachelorAdapter
 import com.mtjin.cnunoticeapp.views.bachelor.BachelorNoticeViewModel
+import com.mtjin.cnunoticeapp.views.board_detail.BoardImageAdapter
 import com.mtjin.cnunoticeapp.views.board_list.BoardAdapter
 import com.mtjin.cnunoticeapp.views.board_list.BoardListViewModel
 import com.mtjin.cnunoticeapp.views.business.BusinessAdapter
@@ -27,6 +30,13 @@ import com.mtjin.cnunoticeapp.views.general.GeneralNoticeViewModel
 @BindingAdapter("setBoardTime")
 fun TextView.setBoardTime(timestamp: Long) {
     text = timestamp.convertBoardTime()
+}
+
+@BindingAdapter("urlImage")
+fun ImageView.setUrlImage(url: String) {
+    Glide.with(this).load(url)
+        .thumbnail(0.1f)
+        .into(this)
 }
 
 @BindingAdapter("setBachelorItems")
@@ -72,6 +82,14 @@ fun RecyclerView.setFavoriteAdapterItems(items: List<FavoriteNotice>?) {
 @BindingAdapter("setBoardItems")
 fun RecyclerView.setBoardAdapterItems(items: List<Board>?) {
     with((adapter as BoardAdapter)) {
+        this.clear()
+        items?.let { this.addItems(it) }
+    }
+}
+
+@BindingAdapter("setBoardImageItems")
+fun RecyclerView.setBoardImageAdapterItems(items: List<String>?) {
+    with((adapter as BoardImageAdapter)) {
         this.clear()
         items?.let { this.addItems(it) }
     }

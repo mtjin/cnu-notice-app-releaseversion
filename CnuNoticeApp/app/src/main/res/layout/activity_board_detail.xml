@@ -5,12 +5,142 @@
 
     <data>
 
+        <variable
+            name="vm"
+            type="com.mtjin.cnunoticeapp.views.board_detail.BoardDetailViewModel" />
+
+        <variable
+            name="item"
+            type="com.mtjin.cnunoticeapp.data.board_list.Board" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".views.board_detail.BoardDetailActivity">
+        android:layout_height="match_parent">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/layout_bottom"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_weight="1">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_28dp"
+                android:layout_marginTop="@dimen/margin_24dp"
+                android:layout_marginEnd="@dimen/margin_28dp"
+                android:text="@{item.title}"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text_size_16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="제목제목" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:text="@{item.content}"
+                android:textSize="@dimen/text_size_12sp"
+                app:layout_constraintEnd_toEndOf="@id/tv_title"
+                app:layout_constraintStart_toStartOf="@id/tv_title"
+                app:layout_constraintTop_toBottomOf="@id/tv_title"
+                tools:text="내용내용내용내용내용내용\n내용내용내용내용내용내용\n내용내용내용내용내용내용" />
+
+            <TextView
+                android:id="@+id/tv_comment_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_12dp"
+                android:drawablePadding="@dimen/padding_4dp"
+                android:text="@{String.valueOf(item.commentList.size())}"
+                android:textSize="@dimen/text_size_16sp"
+                app:drawableStartCompat="@drawable/ic_baseline_mode_comment_12"
+                app:layout_constraintBottom_toBottomOf="@id/tv_recommend_count"
+                app:layout_constraintStart_toEndOf="@id/tv_recommend_count"
+                app:layout_constraintTop_toTopOf="@id/tv_recommend_count"
+                tools:text="0" />
+
+            <TextView
+                android:id="@+id/tv_recommend_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:layout_marginEnd="@dimen/margin_12dp"
+                android:drawablePadding="@dimen/padding_4dp"
+                android:text="@{String.valueOf(item.recommendList.size())}"
+                android:textSize="@dimen/text_size_16sp"
+                app:drawableStartCompat="@drawable/ic_baseline_thumb_up_12"
+                app:layout_constraintEnd_toStartOf="@id/tv_comment_count"
+                app:layout_constraintStart_toStartOf="@id/tv_title"
+                app:layout_constraintTop_toBottomOf="@id/tv_content"
+                tools:text="0" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_images"
+                setBoardImageItems="@{item.imageList}"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_16dp"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintEnd_toEndOf="@id/tv_title"
+                app:layout_constraintStart_toStartOf="@id/tv_title"
+                app:layout_constraintTop_toBottomOf="@id/tv_recommend_count"
+                app:spanCount="3" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_comments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_16dp"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/rv_images" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_comment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_8dp"
+                android:layout_marginTop="@dimen/margin_8dp"
+                android:layout_marginEnd="@dimen/margin_8dp"
+                android:layout_marginBottom="@dimen/margin_8dp"
+                android:background="@drawable/bg_et_board_comment_gray"
+                android:hint="@string/please_enter_comment_hint"
+                android:maxLength="200"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textSize="@dimen/text_size_12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/iv_send"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_send"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_8dp"
+                app:layout_constraintBottom_toBottomOf="@id/et_comment"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/et_comment"
+                app:srcCompat="@drawable/ic_baseline_send_24" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
