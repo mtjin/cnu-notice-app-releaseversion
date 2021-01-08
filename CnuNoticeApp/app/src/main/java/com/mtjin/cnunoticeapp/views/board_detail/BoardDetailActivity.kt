@@ -17,8 +17,8 @@ class BoardDetailActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.vm = viewModel
-        processIntent()
         initAdapter()
+        processIntent()
     }
 
     private fun initAdapter() {
