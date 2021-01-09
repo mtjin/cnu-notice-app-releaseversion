@@ -11,3 +11,4 @@ const val DB_COMMENT = "댓글"
 * */
 const val COLUMN_ID = "id"
 const val COLUMN_COMMENT_COUNT = "commentCount"
+const val COLUMN_RECOMMEND_LIST = "recommendList"

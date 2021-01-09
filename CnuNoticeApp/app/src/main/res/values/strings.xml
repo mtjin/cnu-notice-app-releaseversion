@@ -45,4 +45,6 @@
     <string name="write_compelete_msg">작성 완료</string>
     <string name="max_image_select_msg">사진의 최대 개수는 10장 입니다.</string>
     <string name="please_enter_comment_hint">댓글을 입력하세요.</string>
+    <string name="already_recommend_board_msg">이미 추천한 게시물입니다.</string>
+    <string name="recommend_fail_msg">추천실패</string>
 </resources>

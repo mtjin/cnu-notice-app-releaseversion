@@ -27,8 +27,10 @@ class BoardDetailViewModel(private val repository: BoardDetailRepository) : Base
     var commentInput = MutableLiveData("") //댓글 EditText
 
     private val _commentList = SingleLiveEvent<List<Comment>>()
+    private val _boardRecommendResult = SingleLiveEvent<Boolean>()
 
     val commentList: LiveData<List<Comment>> get() = _commentList
+    val boardRecommendResult: LiveData<Boolean> get() = _boardRecommendResult
 
     fun insertComment() {
         initRandomNickName()
@@ -72,6 +74,29 @@ class BoardDetailViewModel(private val repository: BoardDetailRepository) : Base
                 }
             ).addTo(compositeDisposable)
     }
+
+    //댓글 추천 업데이트
+    fun updateCommentRecommend() {
+    }
+
+    //게시물 추천 업데이트
+    fun updateBoardRecommend() {
+        repository.updateBoard(type = boardName, boardId = board.id)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeBy(
+                onComplete = {
+                    board.recommendList.add(uuid)
+                    _boardRecommendResult.value = true
+                },
+                onError = {
+                    val d = Log.d(TAG, "updateBoardRecommend() onError-> $it")
+                    _boardRecommendResult.value = false
+                }
+            ).addTo(compositeDisposable)
+
+    }
+
 
     private fun initRandomNickName() {
         if (!this::nickName.isInitialized) {

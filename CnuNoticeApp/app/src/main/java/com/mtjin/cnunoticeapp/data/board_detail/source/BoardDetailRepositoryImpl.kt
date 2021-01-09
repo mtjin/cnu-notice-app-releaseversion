@@ -5,10 +5,7 @@ import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.mtjin.cnunoticeapp.data.board_detail.Comment
 import com.mtjin.cnunoticeapp.data.board_list.Board
-import com.mtjin.cnunoticeapp.utils.constants.COLUMN_COMMENT_COUNT
-import com.mtjin.cnunoticeapp.utils.constants.DB_BOARD
-import com.mtjin.cnunoticeapp.utils.constants.DB_COMMENT
-import com.mtjin.cnunoticeapp.utils.constants.TAG
+import com.mtjin.cnunoticeapp.utils.constants.*
 import io.reactivex.BackpressureStrategy
 import io.reactivex.Completable
 import io.reactivex.Flowable
@@ -30,12 +27,21 @@ class BoardDetailRepositoryImpl(private val db: FirebaseFirestore) : BoardDetail
         }
     }
 
-    override fun updateComment(comment: Comment): Completable {
+    override fun updateComment(type: String, boardId: Long, commentId: Long): Completable {
         TODO("Not yet implemented")
     }
 
-    override fun updateBoard(board: Board): Completable {
-        TODO("Not yet implemented")
+    override fun updateBoard(type: String, boardId: Long): Completable {
+        return Completable.create { emitter ->
+            val boardName = DB_BOARD + "_" + type
+            db.collection(boardName).document(boardId.toString())
+                .update(COLUMN_RECOMMEND_LIST, FieldValue.arrayUnion(uuid))
+                .addOnSuccessListener {
+                    emitter.onComplete()
+                }.addOnFailureListener {
+                    emitter.onError(it)
+                }
+        }
     }
 
     //댓글 불러오기
