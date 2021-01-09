@@ -69,7 +69,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/margin_12dp"
                         android:drawablePadding="@dimen/padding_4dp"
-                        android:text="@{String.valueOf(item.commentList.size())}"
+                        android:text="@{String.valueOf(vm.commentList.size())}"
                         android:textSize="@dimen/text_size_16sp"
                         app:drawableStartCompat="@drawable/ic_baseline_mode_comment_12"
                         app:layout_constraintBottom_toBottomOf="@id/tv_recommend_count"

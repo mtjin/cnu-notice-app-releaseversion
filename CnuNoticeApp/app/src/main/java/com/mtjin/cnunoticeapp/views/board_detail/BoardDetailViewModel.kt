@@ -34,7 +34,9 @@ class BoardDetailViewModel(private val repository: BoardDetailRepository) : Base
         initRandomNickName()
         if (!commentInput.value.isNullOrBlank()) {
             repository.insertComment(
-                Comment(
+                type = boardName,
+                board = board,
+                comment = Comment(
                     id = getTimestamp(),
                     userId = uuid,
                     nickName = nickName,
@@ -71,13 +73,29 @@ class BoardDetailViewModel(private val repository: BoardDetailRepository) : Base
             ).addTo(compositeDisposable)
     }
 
-    fun initRandomNickName() {
-        nickName = if (board.writerId == uuid) {
-            "글쓴이"
-        } else {
-            val first = Random(getTimestamp()).nextInt(firstNameList.indices)
-            val second = Random(getTimestamp()).nextInt(secondNameList.indices)
-            "$first $second"
+    private fun initRandomNickName() {
+        if (!this::nickName.isInitialized) {
+            for (comment in commentList.value!!) { //자기 닉네임 있는 경우
+                if (comment.userId == uuid) {
+                    nickName = comment.nickName
+                    return
+                }
+            }
+            if (board.writerId == uuid) {
+                nickName = "글쓴이"
+            } else {
+                val first: String
+                val second: String
+                while (true) {
+                    first = firstNameList[Random(getTimestamp()).nextInt(firstNameList.indices)]
+                    second = secondNameList[Random(getTimestamp()).nextInt(secondNameList.indices)]
+                    for (comment in commentList.value!!) {
+                        if (comment.nickName == "$first $second") continue
+                    }
+                    nickName = "$first $second"
+                    break
+                }
+            }
         }
     }
 }

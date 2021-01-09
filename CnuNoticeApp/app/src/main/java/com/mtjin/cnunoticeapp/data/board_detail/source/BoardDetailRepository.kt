@@ -7,8 +7,8 @@ import io.reactivex.Flowable
 import io.reactivex.Single
 
 interface BoardDetailRepository {
-    fun insertComment(comment: Comment): Completable
-    fun updateComment(comment: Comment): Completable
-    fun updateBoard(board: Board): Completable
-    fun requestComments(type: String, board: Board): Flowable<List<Comment>>
+    fun insertComment(type: String, board: Board,comment: Comment): Completable //댓글 작성
+    fun updateComment(comment: Comment): Completable //댓글 업데이트(추천)
+    fun updateBoard(board: Board): Completable //게시판 업데이트(추천)
+    fun requestComments(type: String, board: Board): Flowable<List<Comment>> //댓글 불러오기
 }

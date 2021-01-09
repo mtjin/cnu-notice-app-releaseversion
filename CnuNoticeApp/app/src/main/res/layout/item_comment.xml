@@ -20,6 +20,18 @@
         android:paddingEnd="@dimen/padding_12dp">
 
         <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{item.nickName}"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="건강한 하마" />
+
+        <TextView
             android:id="@+id/tv_content"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -29,7 +41,7 @@
             android:textSize="@dimen/text_size_14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_name"
             tools:text="내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다" />
 
         <TextView

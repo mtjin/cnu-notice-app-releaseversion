@@ -65,7 +65,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawablePadding="@dimen/padding_4dp"
-            android:text="@{String.valueOf(item.commentList.size())}"
+            android:text="@{String.valueOf(item.commentCount)}"
             android:textSize="@dimen/text_size_12sp"
             app:drawableStartCompat="@drawable/ic_baseline_mode_comment_12"
             app:layout_constraintBottom_toBottomOf="@id/tv_date"

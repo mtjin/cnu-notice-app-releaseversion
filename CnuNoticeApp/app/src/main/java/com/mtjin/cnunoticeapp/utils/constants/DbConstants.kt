@@ -10,3 +10,4 @@ const val DB_COMMENT = "댓글"
 * 쿼리
 * */
 const val COLUMN_ID = "id"
+const val COLUMN_COMMENT_COUNT = "commentCount"
