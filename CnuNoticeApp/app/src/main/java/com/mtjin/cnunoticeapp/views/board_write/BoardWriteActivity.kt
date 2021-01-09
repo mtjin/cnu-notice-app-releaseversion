@@ -30,7 +30,6 @@ class BoardWriteActivity : BaseActivity<ActivityBoardWriteBinding>(R.layout.acti
     private fun initPermission() {
         permissionlistener = object : PermissionListener {
             override fun onPermissionGranted() {
-                showToast("길게 누르면 다중 사진선택이 가능합니다. (최대 9장)")
                 TedImagePicker.with(this@BoardWriteActivity)
                     .max(9, "최대 9장")
                     .startMultiImage { uriList ->
