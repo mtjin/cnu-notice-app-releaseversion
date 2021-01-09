@@ -6,6 +6,7 @@ import androidx.lifecycle.Observer
 import com.mtjin.cnunoticeapp.R
 import com.mtjin.cnunoticeapp.base.BaseActivity
 import com.mtjin.cnunoticeapp.databinding.ActivityMainBinding
+import com.mtjin.cnunoticeapp.views.app_notice.AppNoticeActivity
 import com.mtjin.cnunoticeapp.views.board.BoardActivity
 import com.mtjin.cnunoticeapp.views.univ_notice.NoticeActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -32,7 +33,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
             })
 
             goAppNotice.observe(this@MainActivity, Observer {
-
+                val intent = Intent(this@MainActivity, AppNoticeActivity::class.java)
+                startActivity(intent)
             })
         }
     }
