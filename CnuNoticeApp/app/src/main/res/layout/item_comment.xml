@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.mtjin.cnunoticeapp.data.board_detail.Comment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_board"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/padding_12dp"
+        android:paddingTop="@dimen/padding_12dp"
+        android:paddingEnd="@dimen/padding_12dp">
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_4dp"
+            android:text="@{item.content}"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 내용입니다" />
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_4dp"
+            android:textSize="@dimen/text_size_10sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_content"
+            bind:setBoardTime="@{item.id}"
+            tools:text="12:30" />
+
+
+        <TextView
+            android:id="@+id/tv_recomment_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_12dp"
+            android:drawablePadding="@dimen/padding_4dp"
+            android:text="@{String.valueOf(item.recommendList.size())}"
+            android:textSize="@dimen/text_size_12sp"
+            app:drawableStartCompat="@drawable/ic_baseline_thumb_up_12"
+            app:layout_constraintBottom_toBottomOf="@id/tv_date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_date"
+            tools:text="0" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_1dp"
+            android:layout_marginTop="@dimen/margin_4dp"
+            android:background="@color/colorWhiteGray"
+            app:layout_constraintTop_toBottomOf="@id/tv_date" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
