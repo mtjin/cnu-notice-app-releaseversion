@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="community_adjectives">
+    <string-array name="first_nicknames">
         <item>놀라운</item>
         <item>잘생긴</item>
         <item>사랑스런</item>
@@ -39,7 +39,7 @@
         <item>고풍스런</item>
         <item>세련된</item>
     </string-array>
-    <string-array name="community_nicknames">
+    <string-array name="second_nicknames">
         <item>호랑이</item>
         <item>오랑우탄</item>
         <item>오징어</item>

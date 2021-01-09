@@ -20,6 +20,12 @@ class BoardDetailActivity :
         binding.vm = viewModel
         initAdapter()
         processIntent()
+        initArrays()
+    }
+
+    private fun initArrays() {
+        viewModel.firstNameList = resources.getStringArray(R.array.first_nicknames)
+        viewModel.secondNameList = resources.getStringArray(R.array.second_nicknames)
     }
 
     private fun initAdapter() {
