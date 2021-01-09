@@ -49,4 +49,5 @@
     <string name="please_enter_comment_hint">댓글을 입력하세요.</string>
     <string name="already_recommend_board_msg">이미 추천한 게시물입니다.</string>
     <string name="recommend_fail_msg">추천실패</string>
+    <string name="search_title_content_hint">제목/내용 입력</string>
 </resources>

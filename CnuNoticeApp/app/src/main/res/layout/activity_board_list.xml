@@ -37,21 +37,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/margin_28dp"
+            android:onClick="@{()->vm.clickSearch()}"
             android:src="@drawable/ic_baseline_search_24"
             app:layout_constraintBottom_toBottomOf="@id/tv_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/tv_title" />
 
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_12dp"
+            android:layout_marginTop="@dimen/margin_12dp"
+            android:layout_marginEnd="@dimen/margin_12dp"
+            android:background="@drawable/bg_et_board_comment_gray"
+            android:hint="@string/search_title_content_hint"
+            android:paddingStart="@dimen/padding_16dp"
+            android:paddingEnd="@dimen/padding_16dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_boards"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clipToPadding="false"
             android:layout_marginTop="@dimen/margin_28dp"
+            android:clipToPadding="false"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            app:layout_constraintTop_toBottomOf="@id/et_search"
             bind:boardEndlessScroll="@{vm}"
             bind:setBoardItems="@{vm.boardList}"
             tools:itemCount="5"

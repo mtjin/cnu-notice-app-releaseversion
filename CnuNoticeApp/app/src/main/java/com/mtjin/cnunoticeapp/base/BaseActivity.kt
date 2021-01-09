@@ -16,7 +16,7 @@ abstract class BaseActivity<B : ViewDataBinding>(
     @LayoutRes val layoutId: Int
 ) : AppCompatActivity() {
     lateinit var binding: B
-    private val compositeDisposable = CompositeDisposable()
+    protected val compositeDisposable = CompositeDisposable()
     lateinit var lottieDialog: LottieDialogFragment
 
     override fun onStart() {
