@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:name=".di.KoinApplication"
         android:allowBackup="false"
@@ -14,15 +15,36 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".views.photo_zoom.PhotoZoomActivity"></activity>
-        <activity android:name=".views.board_detail.BoardDetailActivity" />
-        <activity android:name=".views.board_write.BoardWriteActivity" />
-        <activity android:name=".views.board_list.BoardListActivity" />
-        <activity android:name=".views.board.BoardActivity" />
-        <activity android:name=".views.main.MainActivity" />
-        <activity android:name=".views.notice_webview.NoticeWebViewActivity" />
-        <activity android:name=".views.login.LoginActivity" />
-        <activity android:name=".views.notice.NoticeActivity" />
+        <activity
+            android:name=".views.app_notice.AppNoticeActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".views.photo_zoom.PhotoZoomActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".views.board_detail.BoardDetailActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".views.board_write.BoardWriteActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".views.board_list.BoardListActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".views.board.BoardActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".views.main.MainActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".views.notice_webview.NoticeWebViewActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".views.login.LoginActivity"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".views.univ_notice.NoticeActivity"
+            android:launchMode="singleTop" />
         <activity
             android:name=".views.splash.SplashActivity"
             android:theme="@style/SplashTheme">
