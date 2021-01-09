@@ -36,6 +36,10 @@ class BoardDetailActivity :
                 else binding.tvRecommendCount.text =
                     ((binding.tvRecommendCount.text.toString().toInt() + 1).toString())
             })
+
+            commentRecommendResult.observe(this@BoardDetailActivity, Observer {success ->
+                if (!success) showToast(getString(R.string.recommend_fail_msg))
+            })
         }
     }
 
@@ -73,8 +77,18 @@ class BoardDetailActivity :
         })
 
         //댓글 어댑터
-        binding.rvComments.adapter = BoardCommentAdapter(itemClick = {
-
+        binding.rvComments.adapter = BoardCommentAdapter(itemClick = { comment ->
+            val dialog =
+                YesNoDialogFragment.getInstance(yesClick = {
+                    if (it) {
+                        if (comment.recommendList.contains(uuid)) { //이미 내가 추천한 게시물
+                            showToast(getString(R.string.already_recommend_board_msg))
+                        } else {
+                            viewModel.updateCommentRecommend(comment = comment)
+                        }
+                    }
+                })
+            dialog.show(this.supportFragmentManager, dialog.tag)
         })
     }
 

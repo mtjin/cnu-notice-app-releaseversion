@@ -28,7 +28,17 @@ class BoardDetailRepositoryImpl(private val db: FirebaseFirestore) : BoardDetail
     }
 
     override fun updateComment(type: String, boardId: Long, commentId: Long): Completable {
-        TODO("Not yet implemented")
+        return Completable.create { emitter ->
+            val boardName = DB_BOARD + "_" + type
+            db.collection(boardName).document(boardId.toString())
+                .collection(DB_COMMENT).document(commentId.toString())
+                .update(COLUMN_RECOMMEND_LIST, FieldValue.arrayUnion(uuid))
+                .addOnSuccessListener {
+                    emitter.onComplete()
+                }.addOnFailureListener {
+                    emitter.onError(it)
+                }
+        }
     }
 
     override fun updateBoard(type: String, boardId: Long): Completable {
