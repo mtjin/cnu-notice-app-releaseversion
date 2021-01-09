@@ -97,4 +97,6 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     //photoView
     implementation 'com.github.chrisbanes:PhotoView:2.1.3'
+    //tedimagepicker
+    implementation 'gun0912.ted:tedimagepicker:1.1.4'
 }
