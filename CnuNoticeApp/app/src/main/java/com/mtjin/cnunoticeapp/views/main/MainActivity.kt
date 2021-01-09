@@ -30,6 +30,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
                 val intent = Intent(this@MainActivity, BoardActivity::class.java)
                 startActivity(intent)
             })
+
+            goAppOperation.observe(this@MainActivity, Observer {
+
+            })
         }
     }
 }

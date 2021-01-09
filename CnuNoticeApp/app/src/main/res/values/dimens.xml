@@ -25,4 +25,5 @@
     <dimen name="padding_8dp">8dp</dimen>
     <dimen name="margin_15dp">15dp</dimen>
     <dimen name="radius_16dp">16dp</dimen>
+    <dimen name="width_120dp">120dp</dimen>
 </resources>

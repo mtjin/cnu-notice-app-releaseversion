@@ -15,8 +15,8 @@
 
         <com.skydoves.elasticviews.ElasticImageView
             android:id="@+id/iv_notice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/width_120dp"
+            android:layout_height="@dimen/width_120dp"
             android:layout_marginTop="@dimen/margin_48dp"
             android:onClick="@{()->vm.goNotice()}"
             android:scaleType="fitXY"
@@ -41,8 +41,8 @@
 
         <ImageView
             android:id="@+id/iv_board"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/width_120dp"
+            android:layout_height="@dimen/width_120dp"
             android:onClick="@{()->vm.goBoard()}"
             android:scaleType="fitXY"
             android:src="@drawable/ic_board"
@@ -62,5 +62,29 @@
             app:layout_constraintEnd_toEndOf="@id/iv_board"
             app:layout_constraintStart_toStartOf="@id/iv_board"
             app:layout_constraintTop_toBottomOf="@id/iv_board" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_operator"
+            android:layout_width="@dimen/width_120dp"
+            android:layout_height="@dimen/width_120dp"
+            android:layout_marginTop="@dimen/margin_48dp"
+            android:onClick="@{()->vm.goNotice()}"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_operator"
+            app:layout_constraintEnd_toStartOf="@id/iv_board"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_notice" />
+
+        <TextView
+            android:id="@+id/tv_operator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_12dp"
+            android:text="@string/app_notice_text"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text_size_14sp"
+            app:layout_constraintEnd_toEndOf="@id/iv_operator"
+            app:layout_constraintStart_toStartOf="@id/iv_operator"
+            app:layout_constraintTop_toBottomOf="@id/iv_operator" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
