@@ -1,4 +1,4 @@
-package com.mtjin.cnunoticeapp.views.notice
+package com.mtjin.cnunoticeapp.views.univ_notice
 
 import android.os.Bundle
 import androidx.navigation.findNavController

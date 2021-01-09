@@ -5,24 +5,24 @@ import com.mtjin.cnunoticeapp.base.BaseViewModel
 import com.mtjin.cnunoticeapp.utils.SingleLiveEvent
 
 class MainViewModel : BaseViewModel() {
-    private val _goNotice = SingleLiveEvent<Unit>()
+    private val _goUnivNotice = SingleLiveEvent<Unit>()
     private val _goBoard = SingleLiveEvent<Unit>()
-    private val _goAppOperation = SingleLiveEvent<Unit>()
+    private val _goAppNotice = SingleLiveEvent<Unit>()
 
 
-    val goNotice: LiveData<Unit> get() = _goNotice
+    val goUnivNotice: LiveData<Unit> get() = _goUnivNotice
     val goBoard: LiveData<Unit> get() = _goBoard
-    val goAppOperation: LiveData<Unit> get() = _goAppOperation
+    val goAppNotice: LiveData<Unit> get() = _goAppNotice
 
-    fun goNotice() {
-        _goNotice.call()
+    fun goUnivNotice() {
+        _goUnivNotice.call()
     }
 
     fun goBoard() {
         _goBoard.call()
     }
 
-    fun goAppOperation() {
-        _goAppOperation.call()
+    fun goAppNotice() {
+        _goAppNotice.call()
     }
 }
