@@ -19,9 +19,7 @@ class BoardListRepositoryImpl(private val db: FirebaseFirestore) : BoardListRepo
                     val boards = ArrayList<Board>()
                     for (document in documents) {
                         boards.add(document.toObject(Board::class.java))
-                        Log.d("SSSSS", "AAA")
                     }
-                    Log.d("SSSSS", boards.toString())
                     emitter.onSuccess(boards)
                 }.addOnFailureListener {
                     emitter.onError(it)
