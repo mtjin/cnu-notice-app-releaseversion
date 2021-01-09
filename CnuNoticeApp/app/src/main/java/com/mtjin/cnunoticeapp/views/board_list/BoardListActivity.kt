@@ -1,10 +1,11 @@
 package com.mtjin.cnunoticeapp.views.board_list
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.view.WindowManager
+import android.view.inputmethod.InputMethodManager
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.Observer
 import com.mtjin.cnunoticeapp.R
@@ -82,9 +83,14 @@ class BoardListActivity : BaseActivity<ActivityBoardListBinding>(R.layout.activi
                     binding.etSearch.visibility = View.VISIBLE
                     binding.etSearch.requestFocus()
                     if (binding.etSearch.requestFocus()) {
-                        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
+                        //키보드 보이게 하는 부분
+                        val imm: InputMethodManager =
+                            getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                        imm.toggleSoftInput(
+                            InputMethodManager.SHOW_FORCED,
+                            InputMethodManager.HIDE_IMPLICIT_ONLY
+                        )
                     }
-
                 } else {
                     binding.etSearch.visibility = View.GONE
                     viewModel.requestBoards(10)
