@@ -11,5 +11,5 @@ data class Board(
     var content: String = "",
     var imageList: ArrayList<String> = ArrayList(),
     var commentCount: Int = 0,
-    var recommendList: ArrayList<BoardUser> = ArrayList()
+    var recommendList: ArrayList<String> = ArrayList()
 ) : Parcelable
