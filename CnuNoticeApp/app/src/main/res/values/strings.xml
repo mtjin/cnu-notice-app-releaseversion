@@ -14,7 +14,7 @@
     <string name="no_text">NO</string>
     <string name="yes_text">YES</string>
     <string name="explain_text">번호를 누르면 즐겨찾기 추가/해제, 내용을 누르면 해당 링크로 이동합니다.
-    추가기능 요청 혹은 기여는 https://github.com/mtjin/cnu-notice-app-releaseversion 로 해주시면 감사하겠습니다 :)</string>
+    추가기능 요청 혹은 기여는 https://github.com/mtjin/cnu-notice-app-releaseversion 로 해주시면 감사하겠습니다 :) 현재 기본기능만 넣은 상태인데 추후에 더 업데이트 하겠습니다. 할게많아서 ㅠㅠ</string>
     <string name="dialog_favorite_delete_text">즐겨찾기를 삭제하시겠습니까?</string>
     <string name="add_success_text">추가되었습니다</string>
     <string name="delete_success_text">삭제되었습니다</string>

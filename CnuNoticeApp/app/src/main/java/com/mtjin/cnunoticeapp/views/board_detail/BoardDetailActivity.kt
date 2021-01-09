@@ -21,6 +21,11 @@ class BoardDetailActivity :
         initAdapter()
         processIntent()
         initArrays()
+        requestComments()
+    }
+
+    private fun requestComments() {
+        viewModel.requestComments()
     }
 
     private fun initArrays() {
@@ -29,10 +34,16 @@ class BoardDetailActivity :
     }
 
     private fun initAdapter() {
+        //이미지 어댑터
         binding.rvImages.adapter = BoardImageAdapter(itemClick = { imageUrl ->
             val intent = Intent(this, PhotoZoomActivity::class.java)
             intent.putExtra(EXTRA_IMAGE_URL, imageUrl)
             startActivity(intent)
+        })
+
+        //댓글 어댑터
+        binding.rvComments.adapter = BoardCommentAdapter(itemClick = {
+
         })
     }
 
@@ -40,6 +51,7 @@ class BoardDetailActivity :
         val board = intent.getParcelableExtra<Board>(EXTRA_BOARD)
         val boardName = intent.getStringExtra(EXTRA_BOARD_NAME)
         binding.item = board
+        viewModel.board = board!!
         viewModel.boardName = boardName!!
     }
 }

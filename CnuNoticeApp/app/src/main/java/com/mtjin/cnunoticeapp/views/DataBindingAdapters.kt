@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.mtjin.cnunoticeapp.data.bachelor.BachelorNotice
+import com.mtjin.cnunoticeapp.data.board_detail.Comment
 import com.mtjin.cnunoticeapp.data.board_list.Board
 import com.mtjin.cnunoticeapp.data.business.BusinessNotice
 import com.mtjin.cnunoticeapp.data.employ.EmployNotice
@@ -16,6 +17,7 @@ import com.mtjin.cnunoticeapp.utils.EndlessRecyclerViewScrollListener
 import com.mtjin.cnunoticeapp.utils.extensions.convertBoardTime
 import com.mtjin.cnunoticeapp.views.bachelor.BachelorAdapter
 import com.mtjin.cnunoticeapp.views.bachelor.BachelorNoticeViewModel
+import com.mtjin.cnunoticeapp.views.board_detail.BoardCommentAdapter
 import com.mtjin.cnunoticeapp.views.board_detail.BoardImageAdapter
 import com.mtjin.cnunoticeapp.views.board_list.BoardAdapter
 import com.mtjin.cnunoticeapp.views.board_list.BoardListViewModel
@@ -90,6 +92,14 @@ fun RecyclerView.setBoardAdapterItems(items: List<Board>?) {
 @BindingAdapter("setBoardImageItems")
 fun RecyclerView.setBoardImageAdapterItems(items: List<String>?) {
     with((adapter as BoardImageAdapter)) {
+        this.clear()
+        items?.let { this.addItems(it) }
+    }
+}
+
+@BindingAdapter("setBoardCommentItems")
+fun RecyclerView.setBoardCommentAdapterItems(items: List<Comment>?) {
+    with((adapter as BoardCommentAdapter)) {
         this.clear()
         items?.let { this.addItems(it) }
     }

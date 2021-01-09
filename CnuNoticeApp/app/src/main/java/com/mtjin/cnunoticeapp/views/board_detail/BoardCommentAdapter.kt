@@ -5,16 +5,17 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.mtjin.cnunoticeapp.R
-import com.mtjin.cnunoticeapp.databinding.ItemBoardImageBinding
+import com.mtjin.cnunoticeapp.data.board_detail.Comment
+import com.mtjin.cnunoticeapp.databinding.ItemCommentBinding
 
-class BoardCommentAdapter (private val itemClick: (String) -> Unit) :
+class BoardCommentAdapter(private val itemClick: (Comment) -> Unit) :
     RecyclerView.Adapter<BoardCommentAdapter.ViewHolder>() {
-    private val items = mutableListOf<String>()
+    private val items = mutableListOf<Comment>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding: ItemBoardImageBinding = DataBindingUtil.inflate(
+        val binding: ItemCommentBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
-            R.layout.item_board_image,
+            R.layout.item_comment,
             parent,
             false
         )
@@ -35,21 +36,21 @@ class BoardCommentAdapter (private val itemClick: (String) -> Unit) :
         }
     }
 
-    class ViewHolder(private val binding: ItemBoardImageBinding) :
+    class ViewHolder(private val binding: ItemCommentBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: String) {
+        fun bind(item: Comment) {
             binding.item = item
             binding.executePendingBindings()
         }
     }
 
-    fun addItems(items: List<String>) {
+    fun addItems(items: List<Comment>) {
         this.items.addAll(items)
         notifyDataSetChanged()
     }
 
-    fun addItem(item: String) {
+    fun addItem(item: Comment) {
         this.items.add(item)
         notifyDataSetChanged()
     }
