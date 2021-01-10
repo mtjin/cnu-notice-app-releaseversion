@@ -67,9 +67,8 @@ fun RecyclerView.setBusinessAdapterItems(items: List<BusinessNotice>?) {
 
 @BindingAdapter("setEmployItems")
 fun RecyclerView.setEmployAdapterItems(items: List<EmployNotice>?) {
-    with((adapter as EmployAdapter)) {
-        this.clear()
-        items?.let { this.addItems(it) }
+    items?.let {
+        (adapter as EmployAdapter).submitList(it.toMutableList())
     }
 }
 

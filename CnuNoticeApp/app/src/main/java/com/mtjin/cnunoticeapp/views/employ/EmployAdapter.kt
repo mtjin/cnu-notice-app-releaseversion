@@ -3,6 +3,8 @@ package com.mtjin.cnunoticeapp.views.employ
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.mtjin.cnunoticeapp.R
 import com.mtjin.cnunoticeapp.data.employ.EmployNotice
@@ -11,10 +13,11 @@ import com.mtjin.cnunoticeapp.databinding.ItemEmployBinding
 class EmployAdapter(
     private val itemClick: (EmployNotice) -> Unit,
     private val numClick: (EmployNotice) -> Unit
-) :
-    RecyclerView.Adapter<EmployAdapter.ViewHolder>() {
-
-    private val items: ArrayList<EmployNotice> = ArrayList()
+) : ListAdapter<EmployNotice, EmployAdapter.ViewHolder>(
+    diffUtil
+) {
+    //리스트 선언 필요X
+    //private val items = mutableListOf<EmployNotice>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding: ItemEmployBinding = DataBindingUtil.inflate(
@@ -25,20 +28,19 @@ class EmployAdapter(
         )
         val viewHolder = ViewHolder(binding)
         binding.root.setOnClickListener {
-            itemClick(items[viewHolder.adapterPosition])
+            itemClick(getItem(viewHolder.adapterPosition)) //getItem()으로 아이템 가져옴
         }
         binding.employTvNum.setOnClickListener {
-            numClick(items[viewHolder.adapterPosition])
+            numClick(getItem(viewHolder.adapterPosition))
         }
         return viewHolder
     }
 
-    override fun getItemCount(): Int = items.size
+    //getItemCount() 오버라이딩 메서드 사라짐
+    //override fun getItemCount(): Int = items.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        items[position].let {
-            holder.bind(it)
-        }
+        holder.bind(getItem(position)) //변경된 점 -> getItem(position) 메서드가 생겼다.
     }
 
     class ViewHolder(private val binding: ItemEmployBinding) :
@@ -50,14 +52,13 @@ class EmployAdapter(
         }
     }
 
-    fun addItems(items: List<EmployNotice>) {
-        this.items.addAll(items)
-        notifyDataSetChanged()
-    }
+    companion object {
+        val diffUtil = object : DiffUtil.ItemCallback<EmployNotice>() {
+            override fun areContentsTheSame(oldItem: EmployNotice, newItem: EmployNotice) =
+                oldItem == newItem
 
-    fun clear() {
-        this.items.clear()
-        notifyDataSetChanged()
+            override fun areItemsTheSame(oldItem: EmployNotice, newItem: EmployNotice) =
+                oldItem.link == newItem.link
+        }
     }
-
 }

@@ -11,9 +11,9 @@ import io.reactivex.schedulers.Schedulers
 
 class EmployNoticeViewModel(private val repository: EmployNoticeRepository) :
     BaseViewModel() {
-    private val _noticeList = MutableLiveData<ArrayList<EmployNotice>>()
+    private val _noticeList = MutableLiveData<MutableList<EmployNotice>>()
 
-    val noticeList: LiveData<ArrayList<EmployNotice>> get() = _noticeList
+    val noticeList: LiveData<MutableList<EmployNotice>> get() = _noticeList
 
     fun requestNotice() {
         compositeDisposable.add(
@@ -23,7 +23,7 @@ class EmployNoticeViewModel(private val repository: EmployNoticeRepository) :
                 .doOnSubscribe { showProgress() }
                 .doAfterTerminate { hideProgress() }
                 .subscribe({
-                    _noticeList.value = it as ArrayList<EmployNotice>?
+                    _noticeList.value = it as MutableList<EmployNotice>?
                 }, {
                     Log.d(TAG, "" + it)
                 })
