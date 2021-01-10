@@ -27,11 +27,13 @@ class EmployAdapter(
             false
         )
         val viewHolder = ViewHolder(binding)
-        binding.root.setOnClickListener {
-            itemClick(getItem(viewHolder.adapterPosition)) //getItem()으로 아이템 가져옴
-        }
-        binding.employTvNum.setOnClickListener {
-            numClick(getItem(viewHolder.adapterPosition))
+        binding.apply {
+            root.setOnClickListener {
+                itemClick(getItem(viewHolder.adapterPosition)) //getItem()으로 아이템 가져옴
+            }
+            employTvNum.setOnClickListener {
+                numClick(getItem(viewHolder.adapterPosition))
+            }
         }
         return viewHolder
     }
