@@ -50,5 +50,5 @@
     <string name="already_recommend_board_msg">이미 추천한 게시물입니다.</string>
     <string name="recommend_fail_msg">추천실패</string>
     <string name="search_title_content_hint">제목/내용 입력</string>
-    <string name="app_notice_explain_text">예전에 학교 공지사항 보려고 만든 공지사항앱인데 조그만한 커뮤니티 기능을 추가해봤습니다.\n추가기능 요청 혹은 기여는 https://github.com/mtjin/cnu-notice-app-releaseversion 로 해주시면 감사하겠습니다 :)\n 기본기능만 넣은 상태인데 추가/새 기능은 추후에 시간이 된다면 업데이트 하겠습니다. 해야할게 많아서요 이것도 짬내서 한거랍니다ㅠㅠ\n유익하게 사용바랍니다. 감사합니다 :)</string>
+    <string name="app_notice_explain_text">예전에 학교 공지사항 보려고 만든 공지사항앱인데 조그만한 커뮤니티 기능을 추가해봤습니다.\n추가기능 요청 혹은 기여는 https://github.com/mtjin/cnu-notice-app-releaseversion 로 해주시면 감사하겠습니다 :)\n 기본기능만 넣은 상태인데 추가/새 기능은 추후에 시간이 된다면 업데이트 하겠습니다.  감사합니다 :)</string>
 </resources>
