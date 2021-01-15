@@ -5,7 +5,7 @@
 [1차] 대학교 공지보기 토이프로젝트 1차 완료 -공지보기 
 (인터넷 연결상태에 따른 데이터 처리 및 즐겨찾기 기능 추가, 정보는 크롤링으로 긁어옴)
 <p>
-[2차] 충남대 컴공 커뮤니티로 업그레이드 1차 
+[2차] 충남대 컴공 커뮤니티로 1차 업그레이드 (실시간 랜덤 닉네임 댓글 기능)
 <br>
 <p>
 MVVM, Firebase, JSOUP, 무한스크롤, RxJava2, RxKotlin, RxAndroid, jetpack bottom navigation, 캐싱, Koin, ROOM, ViewPager2, PhotoView, Lottie, Tedimagepicker, Elasticviews 등 사용
