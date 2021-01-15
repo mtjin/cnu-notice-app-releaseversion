@@ -8,7 +8,7 @@
 [2차] 충남대 컴공 커뮤니티로 1차 업그레이드 (실시간 랜덤 닉네임 댓글, 자동검색, 게시글 페이징, 다중 이미지 업로드 게시글 기능 등)
 <br>
 <p>
-MVVM, Firebase, JSOUP, 무한스크롤, RxJava2, RxKotlin, RxAndroid, jetpack bottom navigation, 캐싱, Koin, ROOM, ViewPager2, PhotoView, Lottie, Tedimagepicker, Elasticviews 등 사용
+MVVM, Firebase, JSOUP, 무한스크롤, RxJava2, RxKotlin2, RxAndroid2, jetpack bottom navigation, 캐싱, Koin, ROOM, ViewPager2, PhotoView, Lottie, Tedimagepicker, Elasticviews 등 사용
   <br>
   <br>
   <img src="https://user-images.githubusercontent.com/37071007/82731534-9a477c80-9d42-11ea-9d22-94d4438e1b7d.png" align="left" height="400" width="200" >
