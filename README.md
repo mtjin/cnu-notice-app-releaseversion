@@ -8,7 +8,7 @@
 [2차] 충남대 컴공 커뮤니티로 업그레이드 1차 
 <br>
 <p>
-MVVM, Firebase, JSOUP, 무한스크롤, RxJava, jetpack bottom navigation, 캐싱, Koin, Retrofit2, ROOM 등 사용
+MVVM, Firebase, JSOUP, 무한스크롤, RxJava2, RxKotlin, RxAndroid, jetpack bottom navigation, 캐싱, Koin, ROOM, ViewPager2, PhotoView, Lottie, Tedimagepicker, Elasticviews 등 사용
   <br>
   <br>
   <img src="https://user-images.githubusercontent.com/37071007/82731534-9a477c80-9d42-11ea-9d22-94d4438e1b7d.png" align="left" height="400" width="200" >
