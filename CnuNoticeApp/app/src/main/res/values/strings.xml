@@ -35,8 +35,8 @@
     <string name="freshman_board_text">새내기게시판</string>
     <string name="employment_board_text">취업게시판</string>
     <string name="major_board_text">전공게시판</string>
-    <string name="worry_board_text">고민/생각게시판</string>
-    <string name="study_board_text">스터디/공모전게시판</string>
+    <string name="worry_board_text">고민-생각게시판</string>
+    <string name="study_board_text">스터디-공모전게시판</string>
     <string name="write_text">작성하기</string>
     <string name="title_write_text">글 쓰기</string>
     <string name="board_write_rule_hint">인터넷 에티켓 문화를 지켜주세요 :)\n좋은 커뮤니티 문화 부탁드립니다.</string>
