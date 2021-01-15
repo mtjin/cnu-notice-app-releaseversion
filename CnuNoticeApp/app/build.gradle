@@ -11,8 +11,8 @@ android {
         applicationId "com.mtjin.cnunoticeapp"
         minSdkVersion 23
         targetSdkVersion 30
-        versionCode 6
-        versionName "1.22"
+        versionCode 7
+        versionName "1.23"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
