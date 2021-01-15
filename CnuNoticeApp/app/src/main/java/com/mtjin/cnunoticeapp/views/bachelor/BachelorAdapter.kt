@@ -24,11 +24,13 @@ class BachelorAdapter(
             false
         )
         val viewHolder = ViewHolder(binding)
-        binding.root.setOnClickListener {
-            itemClick(items[viewHolder.adapterPosition])
-        }
-        binding.bachelorTvNum.setOnClickListener {
-            numClick(items[viewHolder.adapterPosition])
+        binding.apply {
+            root.setOnClickListener {
+                itemClick(items[viewHolder.bindingAdapterPosition])
+            }
+            bachelorTvNum.setOnClickListener {
+                numClick(items[viewHolder.bindingAdapterPosition])
+            }
         }
         return viewHolder
     }

@@ -24,11 +24,13 @@ class FavoriteAdapter(
             false
         )
         val viewHolder = ViewHolder(binding)
-        binding.root.setOnClickListener {
-            itemClick(items[viewHolder.adapterPosition])
-        }
-        binding.favoriteTvNum.setOnClickListener {
-            numClick(items[viewHolder.adapterPosition])
+        binding.apply {
+            root.setOnClickListener {
+                itemClick(items[viewHolder.bindingAdapterPosition])
+            }
+            favoriteTvNum.setOnClickListener {
+                numClick(items[viewHolder.bindingAdapterPosition])
+            }
         }
         return viewHolder
     }

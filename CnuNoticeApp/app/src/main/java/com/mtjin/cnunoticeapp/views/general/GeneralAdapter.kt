@@ -24,11 +24,13 @@ class GeneralAdapter(
             false
         )
         val viewHolder = ViewHolder(binding)
-        binding.root.setOnClickListener {
-            itemClick(items[viewHolder.adapterPosition])
-        }
-        binding.generalTvNum.setOnClickListener {
-            numClick(items[viewHolder.adapterPosition])
+        binding.apply {
+            root.setOnClickListener {
+                itemClick(items[viewHolder.bindingAdapterPosition])
+            }
+            generalTvNum.setOnClickListener {
+                numClick(items[viewHolder.bindingAdapterPosition])
+            }
         }
         return viewHolder
     }

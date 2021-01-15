@@ -21,7 +21,7 @@ class BoardAdapter(private val itemClick: (Board) -> Unit) :
         )
         return ViewHolder(binding).apply {
             binding.root.setOnClickListener { view ->
-                val position = adapterPosition.takeIf { it != RecyclerView.NO_POSITION }
+                val position = bindingAdapterPosition.takeIf { it != RecyclerView.NO_POSITION }
                     ?: return@setOnClickListener
                 itemClick(items[position])
             }

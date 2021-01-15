@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mtjin.cnunoticeapp.R
 import com.mtjin.cnunoticeapp.databinding.ItemBoardImageBinding
 
-class BoardImageAdapter(private val itemClick: (String) -> Unit) :
+class BoardImageAdapter(private val itemClick: (List<String>, Int) -> Unit) :
     RecyclerView.Adapter<BoardImageAdapter.ViewHolder>() {
     private val items = mutableListOf<String>()
 
@@ -20,9 +20,9 @@ class BoardImageAdapter(private val itemClick: (String) -> Unit) :
         )
         return ViewHolder(binding).apply {
             binding.root.setOnClickListener { view ->
-                val position = adapterPosition.takeIf { it != RecyclerView.NO_POSITION }
+                val position = bindingAdapterPosition.takeIf { it != RecyclerView.NO_POSITION }
                     ?: return@setOnClickListener
-                itemClick(items[position])
+                itemClick(items as ArrayList<String>, position)
             }
         }
     }

@@ -25,10 +25,10 @@ class BusinessAdapter(
         )
         val viewHolder = ViewHolder(binding)
         binding.root.setOnClickListener {
-            itemClick(items[viewHolder.adapterPosition])
+            itemClick(items[viewHolder.bindingAdapterPosition])
         }
         binding.businessTvNum.setOnClickListener {
-            numClick(items[viewHolder.adapterPosition])
+            numClick(items[viewHolder.bindingAdapterPosition])
         }
         return viewHolder
     }
