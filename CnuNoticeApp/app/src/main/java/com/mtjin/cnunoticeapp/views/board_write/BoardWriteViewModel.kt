@@ -22,16 +22,23 @@ class BoardWriteViewModel(private val repository: BoardWriteRepository) :
     var imageUriList = ArrayList<Uri>()
 
     private val _emptyMsg = SingleLiveEvent<String>()
+    private val _writeComplete = SingleLiveEvent<Boolean>()
     private val _insertBoardSuccess = SingleLiveEvent<Boolean>()
     private val _pickImage = SingleLiveEvent<Unit>()
 
     val emptyMsg: LiveData<String> get() = _emptyMsg
+    val writeComplete: LiveData<Boolean> get() = _writeComplete
     val insertBoardSuccess: LiveData<Boolean> get() = _insertBoardSuccess
     val pickImage: LiveData<Unit> get() = _pickImage
 
     var title = MutableLiveData("")
     var content = MutableLiveData("")
 
+
+    //작성하기 버튼 클릭
+    fun writeComplete() {
+        _writeComplete.call()
+    }
 
     //작성완료
     fun insertBoard() {

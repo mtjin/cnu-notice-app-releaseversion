@@ -16,12 +16,15 @@ class YesNoDialogFragment : DialogFragment(),
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_dialog_yes_no, container, false)
-        view.tv_yes.setOnClickListener {
-            yesClick(true)
-            dismiss()
-        }
-        view.tv_no.setOnClickListener {
-            dismiss()
+        view.apply {
+            tv_question.text = question
+            tv_yes.setOnClickListener {
+                yesClick(true)
+                dismiss()
+            }
+            tv_no.setOnClickListener {
+                dismiss()
+            }
         }
 
         return view
@@ -29,8 +32,10 @@ class YesNoDialogFragment : DialogFragment(),
 
     companion object {
         lateinit var yesClick: (Boolean) -> Unit
-        fun getInstance(yesClick: (Boolean) -> Unit): YesNoDialogFragment {
+        lateinit var question: String
+        fun getInstance(yesClick: (Boolean) -> Unit, question: String): YesNoDialogFragment {
             this.yesClick = yesClick
+            this.question = question
             return YesNoDialogFragment()
         }
     }

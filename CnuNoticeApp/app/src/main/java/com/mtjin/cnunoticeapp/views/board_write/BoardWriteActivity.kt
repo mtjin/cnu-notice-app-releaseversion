@@ -10,6 +10,7 @@ import com.mtjin.cnunoticeapp.R
 import com.mtjin.cnunoticeapp.base.BaseActivity
 import com.mtjin.cnunoticeapp.databinding.ActivityBoardWriteBinding
 import com.mtjin.cnunoticeapp.utils.constants.EXTRA_BOARD_NAME
+import com.mtjin.cnunoticeapp.views.dialog.YesNoDialogFragment
 import gun0912.tedimagepicker.builder.TedImagePicker
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -81,6 +82,14 @@ class BoardWriteActivity : BaseActivity<ActivityBoardWriteBinding>(R.layout.acti
                         Manifest.permission.READ_EXTERNAL_STORAGE
                     )
                     .check()
+            })
+
+            writeComplete.observe(this@BoardWriteActivity, Observer {
+                val dialog =
+                    YesNoDialogFragment.getInstance(yesClick = {
+                        if (it) viewModel.insertBoard()
+                    }, question = "작성완료 하시겠습니까?\n수정 및 삭제는 불가능합니다.")
+                dialog.show(supportFragmentManager, dialog.tag)
             })
 
             isLottieLoading.observe(this@BoardWriteActivity, Observer { loading ->

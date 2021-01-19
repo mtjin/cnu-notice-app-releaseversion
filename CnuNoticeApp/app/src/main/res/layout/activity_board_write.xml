@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/margin_28dp"
-            android:onClick="@{()->vm.insertBoard()}"
+            android:onClick="@{()->vm.writeComplete()}"
             android:text="@string/write_text"
             android:textColor="@color/colorWhiteBlue"
             android:textSize="@dimen/text_size_16sp"

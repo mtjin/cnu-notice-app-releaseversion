@@ -53,7 +53,7 @@ class BoardDetailActivity :
                             viewModel.updateBoardRecommend()
                         }
                     }
-                })
+                },  question = "추천하시겠습니까?\n한번한 추천은 취소가 불가능합니다.")
             dialog.show(this.supportFragmentManager, dialog.tag)
         }
     }
@@ -87,7 +87,7 @@ class BoardDetailActivity :
                             viewModel.updateCommentRecommend(comment = comment)
                         }
                     }
-                })
+                }, question = "추천하시겠습니까?\n한번한 추천은 취소가 불가능합니다.")
             dialog.show(this.supportFragmentManager, dialog.tag)
         })
     }
