@@ -89,7 +89,7 @@ class BoardDetailViewModel(private val repository: BoardDetailRepository) : Base
                     _commentRecommendResult.value = true
                 },
                 onError = {
-                    val d = Log.d(TAG, "updateCommentRecommend() onError-> $it")
+                    Log.d(TAG, "updateCommentRecommend() onError-> $it")
                     _commentRecommendResult.value = false
                 }
             ).addTo(compositeDisposable)
@@ -106,14 +106,27 @@ class BoardDetailViewModel(private val repository: BoardDetailRepository) : Base
                     _boardRecommendResult.value = true
                 },
                 onError = {
-                    val d = Log.d(TAG, "updateBoardRecommend() onError-> $it")
+                    Log.d(TAG, "updateBoardRecommend() onError-> $it")
                     _boardRecommendResult.value = false
                 }
             ).addTo(compositeDisposable)
     }
 
     //게시물 삭제
-
+    fun deleteBoard() {
+        repository.deleteBoard(type = boardName, board = board)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeBy(
+                onComplete = {
+                    _deleteBoardResult.value = true
+                },
+                onError = {
+                    _deleteBoardResult.value = false
+                    Log.d(TAG, "deleteBoard() onError-> $it")
+                }
+            ).addTo(compositeDisposable)
+    }
 
     private fun initRandomNickName() {
         if (!this::nickName.isInitialized) {

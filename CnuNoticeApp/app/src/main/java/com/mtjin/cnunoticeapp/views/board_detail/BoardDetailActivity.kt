@@ -38,9 +38,19 @@ class BoardDetailActivity :
             commentRecommendResult.observe(this@BoardDetailActivity, Observer { success ->
                 if (!success) showToast(getString(R.string.recommend_fail_msg))
             })
+
+            deleteBoardResult.observe(this@BoardDetailActivity, Observer { success ->
+                if (!success) {
+                    showToast(getString(R.string.board_delete_fail_msg))
+                } else {
+                    showToast("게시글이 삭제되었습니다")
+                    finish()
+                }
+            })
         }
     }
 
+    //버튼 클릭시 네, 아니요 다이얼로그 요청 후 CRUD 로직이 일어나기 때문에 왔다갔다 안하려고 데이터바인딩 onClick 으로 세팅안했음
     private fun initEvent() {
         binding.tvRecommendCount.setOnClickListener {// 게시물 추천 클릭 시 네, 아니요 다이얼로그
             val dialog =
@@ -53,6 +63,14 @@ class BoardDetailActivity :
                         }
                     }
                 }, question = "추천하시겠습니까?\n한번한 추천은 취소가 불가능합니다.")
+            dialog.show(this.supportFragmentManager, dialog.tag)
+        }
+
+        binding.ivDelete.setOnClickListener {// 게시물삭제 클릭 시 네, 아니요 다이얼로그
+            val dialog =
+                YesNoDialogFragment.getInstance(yesClick = {
+                    if (it) viewModel.deleteBoard()
+                }, question = "삭제하시겠습니까?")
             dialog.show(this.supportFragmentManager, dialog.tag)
         }
     }
