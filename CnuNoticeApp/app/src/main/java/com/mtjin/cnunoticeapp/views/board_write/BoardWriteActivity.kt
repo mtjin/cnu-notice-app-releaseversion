@@ -88,7 +88,7 @@ class BoardWriteActivity : BaseActivity<ActivityBoardWriteBinding>(R.layout.acti
                 val dialog =
                     YesNoDialogFragment.getInstance(yesClick = {
                         if (it) viewModel.insertBoard()
-                    }, question = "작성완료 하시겠습니까?")
+                    }, question = "작성 하시겠습니까?")
                 dialog.show(supportFragmentManager, dialog.tag)
             })
 
