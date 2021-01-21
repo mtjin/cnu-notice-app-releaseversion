@@ -68,4 +68,8 @@ class BoardListViewModel(private val repository: BoardListRepository) : BaseView
     fun setBoardName(name: String) {
         _boardName.value = name
     }
+
+    fun clearBoards() {
+        _boardList.value?.clear()
+    }
 }

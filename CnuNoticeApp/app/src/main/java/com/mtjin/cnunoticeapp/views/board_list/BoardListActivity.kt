@@ -32,7 +32,17 @@ class BoardListActivity : BaseActivity<ActivityBoardListBinding>(R.layout.activi
         initViewModelCallback()
         initAdapter()
         initView()
+        initEvent()
         requestData()
+    }
+
+    private fun initEvent() {
+        binding.layoutSwipeRefresh.setOnRefreshListener {
+            //새로고침 내용
+            viewModel.clearBoards()
+            viewModel.requestBoards(10)
+            binding.layoutSwipeRefresh.isRefreshing = false
+        }
     }
 
     private fun initView() {

@@ -57,20 +57,28 @@
             android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_boards"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/layout_swipe_refresh"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="@dimen/margin_28dp"
-            android:clipToPadding="false"
-            android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_search"
-            bind:boardEndlessScroll="@{vm}"
-            bind:setBoardItems="@{vm.boardList}"
-            tools:itemCount="5"
-            tools:listitem="@layout/item_board" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_search">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_boards"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                bind:boardEndlessScroll="@{vm}"
+                bind:setBoardItems="@{vm.boardList}"
+                tools:itemCount="5"
+                tools:listitem="@layout/item_board" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
         <com.skydoves.elasticviews.ElasticFloatingActionButton
             android:layout_width="wrap_content"
