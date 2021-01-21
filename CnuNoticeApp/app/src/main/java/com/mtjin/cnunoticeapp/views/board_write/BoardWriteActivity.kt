@@ -88,7 +88,7 @@ class BoardWriteActivity : BaseActivity<ActivityBoardWriteBinding>(R.layout.acti
                 val dialog =
                     YesNoDialogFragment.getInstance(yesClick = {
                         if (it) viewModel.insertBoard()
-                    }, question = "작성완료 하시겠습니까?\n수정 및 삭제는 불가능합니다.")
+                    }, question = "작성완료 하시겠습니까?")
                 dialog.show(supportFragmentManager, dialog.tag)
             })
 
