@@ -101,4 +101,6 @@ dependencies {
     implementation 'gun0912.ted:tedimagepicker:1.1.4'
     //viewPager2
     implementation 'androidx.viewpager2:viewpager2:1.1.0-alpha01'
+    //swiperefreshlayout
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 }
