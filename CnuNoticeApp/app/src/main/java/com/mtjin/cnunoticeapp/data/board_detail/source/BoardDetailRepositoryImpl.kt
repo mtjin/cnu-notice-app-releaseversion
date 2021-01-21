@@ -73,4 +73,17 @@ class BoardDetailRepositoryImpl(private val db: FirebaseFirestore) : BoardDetail
         }, BackpressureStrategy.BUFFER)
     }
 
+    override fun deleteBoard(type: String, board: Board): Completable {
+        return Completable.create { emitter ->
+            val boardName = DB_BOARD + "_" + type
+            db.collection(boardName).document(board.id.toString())
+                .delete()
+                .addOnSuccessListener {
+                    emitter.onComplete()
+                }.addOnFailureListener {
+                    emitter.onError(it)
+                }
+        }
+    }
+
 }

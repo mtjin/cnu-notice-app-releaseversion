@@ -10,4 +10,5 @@ interface BoardDetailRepository {
     fun updateComment(type: String, boardId: Long, commentId: Long): Completable //댓글 업데이트(추천)
     fun updateBoard(type: String, boardId: Long): Completable //게시판 업데이트(추천)
     fun requestComments(type: String, board: Board): Flowable<List<Comment>> //댓글 불러오기
+    fun deleteBoard(type: String, board: Board): Completable //게시글 삭제
 }

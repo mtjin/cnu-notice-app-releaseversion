@@ -29,10 +29,12 @@ class BoardDetailViewModel(private val repository: BoardDetailRepository) : Base
     private val _commentList = SingleLiveEvent<List<Comment>>()
     private val _boardRecommendResult = SingleLiveEvent<Boolean>()
     private val _commentRecommendResult = SingleLiveEvent<Boolean>()
+    private val _deleteBoardResult = SingleLiveEvent<Boolean>()
 
     val commentList: LiveData<List<Comment>> get() = _commentList
     val boardRecommendResult: LiveData<Boolean> get() = _boardRecommendResult
     val commentRecommendResult: LiveData<Boolean> get() = _commentRecommendResult
+    val deleteBoardResult: LiveData<Boolean> get() = _deleteBoardResult
 
     fun insertComment() {
         initRandomNickName()
@@ -108,8 +110,9 @@ class BoardDetailViewModel(private val repository: BoardDetailRepository) : Base
                     _boardRecommendResult.value = false
                 }
             ).addTo(compositeDisposable)
-
     }
+
+    //게시물 삭제
 
 
     private fun initRandomNickName() {
