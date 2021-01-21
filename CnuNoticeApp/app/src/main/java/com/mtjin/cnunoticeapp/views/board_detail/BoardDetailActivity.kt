@@ -8,7 +8,6 @@ import com.mtjin.cnunoticeapp.base.BaseActivity
 import com.mtjin.cnunoticeapp.data.board_list.Board
 import com.mtjin.cnunoticeapp.databinding.ActivityBoardDetailBinding
 import com.mtjin.cnunoticeapp.utils.constants.*
-import com.mtjin.cnunoticeapp.utils.constants.EXTRA_IMAGE_URLS
 import com.mtjin.cnunoticeapp.views.dialog.YesNoDialogFragment
 import com.mtjin.cnunoticeapp.views.photo_view.PhotoViewActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -19,9 +18,9 @@ class BoardDetailActivity :
     private val viewModel: BoardDetailViewModel by viewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        processIntent()
         binding.vm = viewModel
         initAdapter()
-        processIntent()
         initArrays()
         initEvent()
         initViewModelCallback()
@@ -53,7 +52,7 @@ class BoardDetailActivity :
                             viewModel.updateBoardRecommend()
                         }
                     }
-                },  question = "추천하시겠습니까?\n한번한 추천은 취소가 불가능합니다.")
+                }, question = "추천하시겠습니까?\n한번한 추천은 취소가 불가능합니다.")
             dialog.show(this.supportFragmentManager, dialog.tag)
         }
     }

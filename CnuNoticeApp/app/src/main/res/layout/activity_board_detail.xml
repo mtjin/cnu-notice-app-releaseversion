@@ -6,6 +6,10 @@
 
     <data>
 
+        <import type="android.view.View" />
+
+        <import type="com.mtjin.cnunoticeapp.utils.constants.ConstantsKt" />
+
         <variable
             name="vm"
             type="com.mtjin.cnunoticeapp.views.board_detail.BoardDetailViewModel" />
@@ -89,6 +93,17 @@
                         app:layout_constraintTop_toTopOf="@id/tv_recommend_count"
                         bind:setBoardTime="@{item.id}"
                         tools:text="12:00" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/margin_28dp"
+                        android:visibility="@{vm.board.writerId.equals(ConstantsKt.uuid) ? View.VISIBLE : View.GONE}"
+                        app:layout_constraintBottom_toBottomOf="@id/tv_date"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/tv_date"
+                        app:srcCompat="@drawable/ic_baseline_delete_24" />
+
 
                     <TextView
                         android:id="@+id/tv_recommend_count"
