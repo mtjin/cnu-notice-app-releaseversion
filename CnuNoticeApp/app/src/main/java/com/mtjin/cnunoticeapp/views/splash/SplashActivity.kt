@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import com.mtjin.cnunoticeapp.utils.SharedPrefManager
-import com.mtjin.cnunoticeapp.utils.constants.APP_VERSION_CODE
+import com.mtjin.cnunoticeapp.utils.constants.APP_VERSION_NAME
 import com.mtjin.cnunoticeapp.views.login.LoginActivity
 import com.mtjin.cnunoticeapp.views.main.MainActivity
 
@@ -28,7 +28,8 @@ class SplashActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
         auth = FirebaseAuth.getInstance()
-        val appVersion = mFirebaseRemoteConfig.getString(APP_VERSION_CODE)
+        mFirebaseRemoteConfig.fetchAndActivate()
+        val appVersion = mFirebaseRemoteConfig.getString(APP_VERSION_NAME)
         if (appVersion == getAppVersionCode()) {
             if (auth.currentUser != null) {
                 Toast.makeText(this, "자동 로그인", Toast.LENGTH_SHORT).show()
