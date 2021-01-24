@@ -13,8 +13,8 @@ android {
         applicationId "com.mtjin.cnunoticeapp"
         minSdkVersion 23
         targetSdkVersion 30
-        versionCode 12
-        versionName "1.28"
+        versionCode 13
+        versionName "1.30"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
