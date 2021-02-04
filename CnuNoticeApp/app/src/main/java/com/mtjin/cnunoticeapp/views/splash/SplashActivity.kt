@@ -30,7 +30,7 @@ class SplashActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         mFirebaseRemoteConfig.fetchAndActivate()
         val appVersion = mFirebaseRemoteConfig.getString(APP_VERSION_NAME)
-        if (appVersion == getAppVersionCode()) {
+        if (appVersion >= getAppVersionCode()) {
             if (auth.currentUser != null) {
                 Toast.makeText(this, "자동 로그인", Toast.LENGTH_SHORT).show()
                 SharedPrefManager(this).uuid = auth.currentUser!!.uid
