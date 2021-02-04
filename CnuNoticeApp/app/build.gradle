@@ -116,4 +116,6 @@ dependencies {
     implementation 'androidx.viewpager2:viewpager2:1.1.0-alpha01'
     //swiperefreshlayout
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+    //BorderEditText
+    implementation 'com.github.mtjin:BorderEditText:1.0.1'
 }
