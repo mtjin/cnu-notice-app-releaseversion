@@ -6,6 +6,7 @@ import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -28,9 +29,12 @@ class SplashActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
         auth = FirebaseAuth.getInstance()
-        mFirebaseRemoteConfig.fetchAndActivate()
-        val appVersion = mFirebaseRemoteConfig.getString(APP_VERSION_NAME)
-        if (appVersion >= getAppVersionCode()) {
+        mFirebaseRemoteConfig.fetch(3600).addOnCompleteListener {
+            if (it.isSuccessful) mFirebaseRemoteConfig.fetchAndActivate()
+        }
+        val remoteConfigAppVersion = mFirebaseRemoteConfig.getDouble(APP_VERSION_NAME)
+        Log.d(this.javaClass.simpleName, "리모트 컨피그 앱버전 -> $remoteConfigAppVersion")
+        if (remoteConfigAppVersion <= getAppVersionCode()) {
             if (auth.currentUser != null) {
                 Toast.makeText(this, "자동 로그인", Toast.LENGTH_SHORT).show()
                 SharedPrefManager(this).uuid = auth.currentUser!!.uid
@@ -57,14 +61,15 @@ class SplashActivity : AppCompatActivity() {
     }
 
 
-    private fun getAppVersionCode(): String {
+    private fun getAppVersionCode(): Double {
         try {
             val pInfo: PackageInfo =
                 this.packageManager.getPackageInfo(this.packageName, 0)
-            return pInfo.versionName
+            Log.d(this.javaClass.simpleName, "앱버전 -> ${pInfo.versionName}")
+            return pInfo.versionName.toDouble()
         } catch (e: PackageManager.NameNotFoundException) {
             e.printStackTrace()
         }
-        return ""
+        return 0.0
     }
 }
